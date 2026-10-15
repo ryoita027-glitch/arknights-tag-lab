@@ -42,4 +42,16 @@ for(const tags of choices){
 }}
 assert.equal(tested,8178);
 assert.equal(collectCombinations(["上級エリート","前衛","近距離","火力","支援"],"normal").list[0].score.min,6);
-console.log("PASS: 158 operators, 29 tags, 8178 combinations, no violations");
+// White Wiki links: complete, unique, HTTPS-only, and safe for opening in a new tab.
+const wikiUrls=OPERATORS.map(op=>op.u);
+assert.equal(wikiUrls.length,158);
+assert.equal(new Set(wikiUrls).size,158);
+for(const op of OPERATORS) {
+  assert.match(op.u,/^https:\/\/arknights\.wikiru\.jp\/(?:index\.php)?\?[^#\s]+$/);
+  const chip=vm.runInContext("opChip(SAFE_OPS.find(o=>o.n==="+JSON.stringify(op.n)+"))",sandbox);
+  assert(chip.includes('href="'+op.u+'"'),"Wrong page: "+op.n);
+  assert(chip.includes('target="_blank"')&&chip.includes('rel="noopener noreferrer"'));
+}
+assert(html.includes("wikiLink(op,'operator-wiki-link')"),"The reverse index must link to Wiki");
+assert(html.includes("wikiLink(op,'preview-wiki-link')"),"Collapsed candidate names must link to Wiki");
+console.log("PASS: 158 operators, 29 tags, 8178 combinations and 158 White Wiki URLs");
