@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#11151b" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="description" content="アークナイツ公開求人のタグを最大5つ入力し、★4以上確定の最適な組み合わせをオフライン検索。" />
+<title>RECRUIT // アークナイツ公開求人</title>
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="apple-touch-icon" href="./icon-192.png" />
+<style>
+:root{color-scheme:dark;--bg:#101318;--surface:#191e25;--surface2:#222832;--edge:#343b44;--muted:#9ba5b3;--text:#f0f1f1;--orange:#ffba59;--green:#7ad6b1;--red:#ff8688;--sky:#9abfff;--purple:#e7afea}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:24px}body{margin:0;background:radial-gradient(ellipse 54% 20% at 12% -3%,#2b3540 0%,transparent 90%),var(--bg);color:var(--text);font-family:Inter,"-apple-system",BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans", "Noto Sans JP",Meiryo,sans-serif;-webkit-font-smoothing:antialiased}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--orange);outline-offset:3px}a{text-decoration:none;color:inherit}.app-wrap{max-width:1220px;margin:0 auto;padding:0 34px}.topbar{height:90px;border-bottom:1px solid #394047;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:14px}.brand-logo{width:46px;height:46px;background:var(--orange);color:#141920;display:grid;place-items:center;font-size:32px;font-style:italic;font-weight:950;letter-spacing:-.19em;padding-right:7px;clip-path:polygon(0 0,87% 0,100% 18%,100% 100%,13% 100%,0 82%)}.brand-logo span{font-size:19px;transform:translate(2px,7px);color:#64431d}.brand-over{font-size:9px;color:var(--orange);font-weight:800;letter-spacing:.21em;margin-bottom:3px}.brand-title{font-size:18px;letter-spacing:.12em;font-weight:900}.brand-mark{font-size:10px;letter-spacing:.14em;color:var(--muted)}.offline{display:flex;align-items:center;gap:8px;letter-spacing:.035em;color:#cad2d9;font-size:11px;font-weight:600;background:#1e2729;border:1px solid #2d4b40;padding:9px 12px}.offline i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 11px #7ad6b1}.hero{padding:47px 0 40px;position:relative}.hero:after{content:'R / 001';font-size:84px;line-height:1;font-weight:1000;letter-spacing:-.08em;color:rgba(255,255,255,.023);position:absolute;right:15px;top:30px;pointer-events:none}.eyebrow,.overline{color:var(--orange);font-size:10px;font-weight:800;letter-spacing:.18em}.eyebrow{display:flex;align-items:center;gap:10px}.eyebrow-line{height:1px;width:24px;background:var(--orange)}.version{border-left:1px solid #50565e;margin-left:7px;padding-left:14px;color:var(--muted)}h1{font-size:clamp(31px,4vw,49px);line-height:1.35;letter-spacing:-.035em;font-weight:900;margin:16px 0 12px}h1 em{font-style:normal;color:var(--orange)}.hero p{font-size:13px;line-height:1.9;color:#b2bdc7;margin:0}.mobile-break{display:none}.grid-layout{display:grid;grid-template-columns:minmax(0,1.01fr) minmax(0,.99fr);gap:18px;align-items:start}.panel{background:var(--surface);border:1px solid var(--edge);min-width:0}.panel-heading{display:flex;gap:13px;align-items:center;padding:24px 24px 20px}.panel-heading .number{background:#2c3138;border:1px solid #525760;color:var(--orange);font-size:15px;font-weight:900;min-width:38px;height:38px;display:grid;place-items:center;clip-path:polygon(0 0,89% 0,100% 14%,100% 100%,11% 100%,0 86%)}.panel-heading h2{margin:6px 0 0;font-size:17px;letter-spacing:.01em}.counter,.result-count{margin-left:auto;background:#282e36;border:1px solid #424951;color:#e6e7e9;padding:7px 9px;font-size:12px;white-space:nowrap}.selection{margin:0 24px;padding:16px 17px;background:#11171d;border:1px solid #333b45;min-height:106px}.selection-top{display:flex;justify-content:space-between;align-items:center;color:#aeb9c5;font-size:11px;margin-bottom:13px}.selection-top strong{color:var(--orange);font-size:13px;margin-left:5px}.text-button{color:#cad0d5;background:none;border:0;text-decoration:underline;text-decoration-color:#58606a;text-underline-offset:4px;font-size:11px;padding:3px}.text-button:hover{color:var(--orange)}.selected-tags{display:flex;flex-wrap:wrap;gap:7px;min-height:29px;align-items:center}.empty-slot{color:#737f8c;font-size:12px}.tag-selected{background:#343321;border:1px solid #a98146;color:#ffe0a4;font-size:12px;font-weight:800;padding:8px 11px;line-height:1;border-radius:3px;display:inline-flex;gap:8px;align-items:center}.tag-selected b{font-size:14px;color:#ffca79}.time-box{padding:23px 24px 15px}.field-label{font-size:12px;font-weight:800;color:#e6e9eb;margin-bottom:10px}.field-sub{margin-left:5px;color:var(--muted);font-weight:400;font-size:10px}.segmented{display:flex;gap:8px}.mode-btn{width:50%;display:flex;flex-direction:column;align-items:flex-start;gap:3px;background:#242a32;color:#d0d6dc;padding:11px 14px;border:1px solid #3b4550;border-radius:3px}.mode-btn.active{background:#3a3224;border-color:#bc8a42;color:#ffd28e;box-shadow:inset 0 0 0 1px #9f783529}.mode-btn strong{font-size:19px;letter-spacing:.08em;font-weight:900}.mode-btn span{font-size:11px}.search-wrap{display:flex;align-items:center;gap:8px;background:#151a20;border:1px solid #424a53;margin:4px 24px 19px;padding:10px 13px}.search-wrap svg{stroke:#8d97a2;stroke-width:1.7;fill:none;width:17px;height:17px;flex:none}.search-wrap input{min-width:0;flex:1;background:transparent;color:var(--text);outline:0;border:0;font-size:13px}.search-wrap input::placeholder{color:#788492}.tag-group{padding:0 24px 21px}.group-header{border-bottom:1px solid #333b43;padding-bottom:9px;margin-bottom:11px;display:flex;align-items:center;gap:7px;font-size:11px;letter-spacing:.06em;font-weight:850}.group-header .category-note{font-weight:400;color:#818c9a;font-size:10px;margin-left:auto;letter-spacing:0}.group-accent{height:8px;width:3px;background:var(--orange)}.group-tags{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.tag-btn{min-height:42px;background:#282f37;color:#e3e6eb;border:1px solid #404955;border-radius:2px;font-size:12px;font-weight:720;display:flex;align-items:center;justify-content:center;gap:3px;padding:6px 4px;position:relative;transition:background .11s,transform .11s;word-break:keep-all;white-space:nowrap}.tag-btn:hover:not(:disabled){background:#39424c;transform:translateY(-1px)}.tag-btn.selected{border-color:#dca04b;color:#ffd695;background:#50402a}.tag-btn.ineligible{opacity:.3;cursor:not-allowed}.tag-btn.is-full:not(.selected){opacity:.42}.tag-btn small{font-size:8px;letter-spacing:-.03em;font-weight:800;border:1px solid #628c7c;border-radius:2px;padding:2px 2px;color:#91e0bd}.tag-btn small.gold{color:#f6d18e;border-color:#a78753}.no-tags{padding:12px 0;color:var(--muted);font-size:12px}.panel-footnote{margin:3px 24px 24px;border-top:1px solid #323941;padding-top:14px;color:#8f9aa7;line-height:1.8;font-size:10px}.hint-dot{display:inline-block;height:6px;width:6px;border-radius:50%;background:var(--orange);margin-right:7px}.results-head{padding-bottom:21px}.mode-note{background:#24282d;border-block:1px solid #343c46;padding:10px 24px;display:flex;gap:8px;align-items:flex-start;color:#bdc6ce;font-size:11px;line-height:1.75}.pulse-dot{height:7px;width:7px;flex:none;margin-top:5px;background:var(--orange);border-radius:50%}.result-empty{min-height:370px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 23px}.empty-icon{height:65px;width:65px;border:1px solid #4b545c;color:#636f7c;display:grid;place-items:center;font-size:32px;font-weight:900;transform:rotate(45deg);margin-bottom:26px}.empty-icon span{transform:rotate(-45deg)}.result-empty h3{font-size:16px;margin:0 0 10px}.result-empty p{font-size:12px;color:#8c99a6;line-height:1.9;margin:0}.results-inner{padding:19px 20px 24px}.result-summary{padding:16px 16px 14px;background:#2f3226;border:1px solid #676349;border-left:3px solid var(--orange);margin-bottom:15px}.result-summary .sum-kicker{font-size:10px;color:#e0bd82;font-weight:900;letter-spacing:.12em}.result-summary h3{font-size:17px;line-height:1.4;margin:7px 0}.result-summary p{font-size:11px;color:#c6c2b5;margin:0;line-height:1.7}.result-summary.neutral{background:#242b30;border-color:#384652;border-left-color:#819caf}.result-summary.neutral .sum-kicker{color:#aebcc9}.subheading{display:flex;align-items:center;gap:8px;justify-content:space-between;margin:19px 0 10px;font-size:12px;font-weight:850}.subheading .rule{height:1px;background:#39434d;flex:1;margin:0 3px}.subheading small{font-size:10px;color:#8e99a4;font-weight:400}.combo-card{border:1px solid #3d4751;background:#212830;margin-bottom:8px;position:relative}.combo-card.best{border-color:#9b7848;background:#292a2a}.card-button{border:0;background:transparent;display:block;width:100%;text-align:left;color:inherit;padding:15px 14px 13px}.combo-card .card-top{display:flex;align-items:center;justify-content:space-between;gap:6px}.tier{font-size:11px;padding:5px 8px;border-radius:2px;letter-spacing:.04em;font-weight:900;display:inline-block}.tier-6{background:#d9af6c;color:#231c13}.tier-5{background:#f2c77f;color:#36250f}.tier-4{background:#b8ded2;color:#162923}.tier-low{background:#414c57;color:#dae3e8}.card-rank{font-size:10px;color:#929daa}.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 11px}.card-tags span{background:#363e48;border:1px solid #515c68;padding:6px 9px;font-size:12px;font-weight:750}.best .card-tags span{background:#403a30;border-color:#6b5943}.card-bottom{display:flex;justify-content:space-between;align-items:center;color:#a3aeba;font-size:11px;gap:5px}.card-bottom .right{display:flex;gap:9px;align-items:center}.chev{font-size:14px;color:#a3aeba;display:inline-block;transition:transform .16s}.combo-card.expanded .chev{transform:rotate(180deg)}.preview-names{font-size:11px;color:#cad3dc;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 14px 12px}.operator-detail{display:none;border-top:1px solid #414a55;padding:11px 13px 15px;background:rgba(11,16,21,.27)}.combo-card.expanded .operator-detail{display:block}.detail-label{font-size:10px;color:#9da8b4;margin:0 0 9px}.op-chips{display:flex;gap:6px;flex-wrap:wrap}.op-chip{border:1px solid #485360;background:#303945;color:#ebeff2;padding:6px 8px;font-size:11px;display:inline-flex;gap:6px;align-items:center}.op-chip b{color:#efc783;font-size:10px}.op-chip.star6{border-color:#9a7440}.op-chip.star4 b{color:#ade1cc}.op-chip.star3 b,.op-chip.star2 b,.op-chip.star1 b{color:#b4bdc6}.detail-footer{font-size:10px;line-height:1.7;margin-top:11px;color:#a4afbb}.detail-footer strong{color:var(--orange)}.more-btn{width:100%;background:#2b333c;color:#e2e6e8;border:1px solid #4a5561;padding:13px;font-size:12px;font-weight:800;margin-top:7px}.more-btn:hover{background:#35414c}.invalid-note{padding:12px;border:1px dashed #555059;background:#27242b;color:#c8bbc4;font-size:11px;line-height:1.75;margin:12px 0}.bottom-info{border-top:1px solid #343d46;padding:19px 23px 23px;background:#171b21}.bottom-info b{font-size:11px;color:#bdc6cf}.bottom-info p{font-size:10px;line-height:1.8;color:#8995a3;margin:6px 0 0}.extra{margin-top:20px;border:1px solid #424a53;background:#1c2229;padding:23px 25px}.extra-title{display:flex;align-items:center;justify-content:space-between;gap:15px}.extra h2{font-size:18px;margin:7px 0}.extra p{font-size:11px;color:#a2adbb;margin:0;line-height:1.5}.secondary-btn{white-space:nowrap;min-height:44px;border:1px solid #9b8052;background:#383127;padding:11px 16px;font-size:12px;color:#ffd49b;font-weight:800}.secondary-btn span{margin-left:13px}footer{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:27px 0 37px;font-size:10px;color:#83909e}footer>span:first-child{color:var(--orange);font-size:10px;letter-spacing:.14em;font-weight:900}footer small{flex-basis:100%;color:#717e8b;font-size:9px}.toast{position:fixed;z-index:90;left:50%;bottom:28px;transform:translate(-50%,30px);padding:12px 17px;background:#ecbf7e;color:#1c2229;font-size:12px;font-weight:850;opacity:0;pointer-events:none;transition:.16s;max-width:90vw;white-space:nowrap}.toast.visible{opacity:1;transform:translate(-50%,0)}.mobile-jump{display:none}.operator-modal{border:1px solid #56616d;background:#171d25;color:var(--text);padding:0;width:min(650px,calc(100% - 24px));max-height:min(750px,90dvh);box-shadow:0 30px 80px #000a}.operator-modal::backdrop{background:#050910b8;backdrop-filter:blur(4px)}.modal-inner{display:flex;flex-direction:column;max-height:90dvh}.modal-header{padding:20px 21px 10px;display:flex;justify-content:space-between;align-items:start}.modal-header h2{font-size:17px;margin:7px 0 3px}.modal-header h2 span{font-size:12px;color:var(--muted);font-weight:500}.close-btn{width:38px;height:38px;border:1px solid #57616b;color:#fafafa;background:#292f38;font-size:22px}.index-search{margin:8px 21px 5px;flex:none}.index-legend{font-size:10px;color:#a6b0bc;padding:8px 21px 14px}.operator-list{overflow:auto;min-height:90px;border-top:1px solid #3c4650;padding-bottom:10px}.operator-row{padding:12px 20px;display:flex;gap:12px;border-bottom:1px solid #323b43;align-items:center}.operator-name{min-width:110px;flex:1;font-size:12px;font-weight:800}.operator-rarity{font-size:9px;font-weight:900;color:var(--orange)}.operator-class{font-size:10px;color:#9eafbf;font-weight:500;margin-top:5px}.operator-row-tags{display:flex;flex-wrap:wrap;gap:5px;max-width:67%}.operator-row-tags span{font-size:10px;background:#2b333d;border:1px solid #46515e;padding:5px 6px}.operator-row>button{border:1px solid #81704d;background:#3a3228;color:#ffd3a0;padding:7px;font-size:10px;font-weight:800;white-space:nowrap}.search-notfound{padding:24px;text-align:center;font-size:12px;color:var(--muted)}
+@media(min-width:1000px){.input-panel{position:relative}.results-panel{position:sticky;top:18px}}@media(max-width:980px){.app-wrap{padding:0 19px}.hero{padding:39px 0 30px}.grid-layout{grid-template-columns:minmax(0,1fr)}.group-tags{grid-template-columns:repeat(5,minmax(0,1fr))}.result-empty{min-height:240px}.hero:after{font-size:57px}}@media(max-width:610px){.app-wrap{padding:0 14px}.topbar{height:70px}.brand{gap:9px}.brand-logo{width:35px;height:35px;font-size:25px}.brand-over{font-size:8px}.brand-title{font-size:15px}.brand-mark{font-size:8px}.offline{font-size:9px;padding:7px 8px}.hero{padding:35px 6px 27px}.hero:after{display:none}.hero p{font-size:12px}.mobile-break{display:block}h1{font-size:32px;margin:13px 0 10px}.eyebrow{font-size:9px}.version{font-size:8px;padding-left:8px;margin-left:0}.grid-layout{gap:14px}.panel-heading{padding:20px 15px 18px;gap:10px}.panel-heading h2{font-size:15px}.panel-heading .number{height:36px;min-width:36px;font-size:13px}.panel-heading .overline{font-size:9px}.selection{margin:0 15px;padding:13px}.time-box{padding:20px 15px 14px}.search-wrap{margin:4px 15px 19px}.tag-group{padding:0 15px 19px}.group-tags{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.tag-btn{min-height:43px;font-size:12px}.tag-btn small{font-size:8px}.panel-footnote{margin:0 15px 20px}.results-inner{padding:14px 12px 23px}.mode-note{padding:10px 15px;font-size:10px}.combo-card .card-button{padding:13px 11px}.card-tags{margin:12px 0 10px}.card-tags span{font-size:12px;padding:6px 8px}.preview-names{padding:0 11px 11px}.result-summary h3{font-size:16px}.extra{margin-top:14px;padding:19px 16px}.extra h2{font-size:15px}.extra p{font-size:10px}.secondary-btn{font-size:10px;padding:9px;white-space:normal}.secondary-btn span{margin-left:4px}footer{padding-bottom:94px}.mobile-jump{position:fixed;display:none;align-items:center;gap:16px;justify-content:space-between;z-index:15;left:50%;transform:translateX(-50%);bottom:calc(13px + env(safe-area-inset-bottom));width:min(310px,calc(100% - 40px));padding:14px 17px;background:#ffc47b;color:#262117;box-shadow:0 8px 32px #000a;font-size:13px;font-weight:900;letter-spacing:.03em;clip-path:polygon(0 0,95% 0,100% 22%,100% 100%,5% 100%,0 78%)}.mobile-jump.show{display:flex}.jump-arrow{font-size:20px;line-height:1}.toast{bottom:calc(80px + env(safe-area-inset-bottom))}.operator-modal{width:calc(100% - 14px);max-height:90dvh}.modal-inner{max-height:90dvh}.operator-row{padding:11px}.operator-name{min-width:74px;font-size:11px}.operator-row-tags{max-width:60%}.operator-row-tags span{font-size:9px;padding:4px}.operator-row>button{font-size:9px;padding:6px}.index-legend{font-size:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+/* v2: 表示候補フィルタ（モバイルでも44pxタッチ領域） */
+.filter-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:10px 0 14px;flex-wrap:wrap}.filter-count{color:#a7b2be;font-size:11px;line-height:1.5}.filter-count strong{font-size:13px;color:#f4e6c9;margin-left:4px}.filter-btn{min-height:44px;color:#d8e6e0;background:#283530;border:1px solid #607970;border-radius:3px;font-size:11px;font-weight:800;padding:10px 12px}.filter-btn.active{color:#16271f;background:#a7dec9;border-color:#c1f1d9}.filter-btn:active{transform:scale(.99)}.inline-link{border:0;color:#ffca7e;background:transparent;text-decoration:underline;text-underline-offset:3px;padding:2px 1px;font-weight:850;cursor:pointer}@media(max-width:380px){.filter-bar{align-items:stretch;flex-direction:column}.filter-btn{width:100%}}
+
+@media(max-width:610px){.tag-btn{min-height:46px}.tag-selected{min-height:40px}}
+
+.install-guide{margin-top:14px;background:#1a2227;border:1px solid #384751;color:#dce5ea}.install-guide summary{cursor:pointer;min-height:44px;padding:13px 18px;font-size:12px;font-weight:850;color:#d9e9ec;list-style-position:inside}.install-guide summary:hover{background:#253139}.install-guide-body{padding:0 20px 15px;font-size:11px;line-height:1.85;color:#a8b8c4}.install-guide-body p{margin:6px 0}
+
+</style>
+</head>
+<body>
+<div class="app-wrap">
+<header class="topbar">
+  <div class="brand"><div class="brand-logo" aria-hidden="true">R<span>/</span></div><div><div class="brand-over">ARKNIGHTS UTILITY</div><div class="brand-title">RECRUIT<span class="brand-mark"> / TAG LAB</span></div></div></div>
+  <div class="offline"><i aria-hidden="true"></i>オフライン対応</div>
+</header>
+<main>
+  <section class="hero">
+    <div class="eyebrow"><span class="eyebrow-line"></span>公開求人・タグ検索ツール <span class="version">JP / 2026.10</span></div>
+    <h1>選んだタグから、<br/><em>最適解を見つける。</em></h1>
+    <p>ゲームに表示された5つのタグを選ぶだけ。<br class="mobile-break"/>★4以上が確定する組み合わせを自動で上位表示します。</p>
+  </section>
+  <div class="grid-layout">
+   <section class="panel input-panel" id="input-panel" aria-label="タグ入力">
+     <div class="panel-heading"><div class="number">01</div><div><div class="overline">SELECT TAGS</div><h2>表示されたタグを選ぶ</h2></div><span id="tag-counter" class="counter">0 / 5</span></div>
+     <div class="selection">
+       <div class="selection-top"><span>選択中のタグ <strong id="selected-num">0</strong></span><button type="button" class="text-button" id="clear-btn">すべて解除 ↺</button></div>
+       <div id="selected-tags" class="selected-tags" aria-live="polite"><span class="empty-slot">タグをタップして追加</span></div>
+     </div>
+     <div class="time-box"><div class="field-label">募集時間 <span class="field-sub">レア度判定に反映</span></div>
+      <div class="segmented" role="group" aria-label="募集時間"><button id="mode-normal" class="mode-btn active" aria-pressed="true"><strong>9:00</strong><span>通常・高レア</span></button><button id="mode-robot" class="mode-btn" aria-pressed="false"><strong>3:50</strong><span>ロボット狙い</span></button></div>
+     </div>
+     <label class="search-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.2"/><path d="m15.6 15.6 4.3 4.3"/></svg><input type="search" id="tag-search" placeholder="タグを検索" aria-label="タグを検索" autocomplete="off" /></label>
+     <div id="tag-groups"></div>
+     <div class="panel-footnote"><span class="hint-dot"></span>小さな ★4+ / ★5+ は9時間設定時の単独タグ評価。選択後は組み合わせを再計算します。</div>
+   </section>
+   <section class="panel results-panel" id="results" aria-label="検索結果">
+     <div class="panel-heading results-head"><div class="number">02</div><div><div class="overline">BEST COMBINATIONS</div><h2>おすすめの組み合わせ</h2></div><span class="result-count" id="combo-count">—</span></div>
+     <div class="mode-note"><span class="pulse-dot"></span><span id="mode-note">9時間設定での判定。タグが消えなかった場合の最低レア度です。</span></div>
+     <div id="result-content" aria-live="polite"></div>
+     <div class="bottom-info"><div><b>判定について</b><p>★の確定表示は、該当タグが最後まで有効だった場合の結果です。「上級エリート」は9時間で★6対象。排出確率やタグ消去率は表示していません。</p></div></div>
+   </section>
+  </div>
+  <section class="extra">
+   <div class="extra-title"><div><span class="overline">OPERATOR INDEX</span><h2>キャラクターから逆引き</h2><p>欲しいキャラの名前から、対応タグを確認できます。</p></div><button id="open-index" class="secondary-btn">全158人を見る <span>↗</span></button></div>
+  </section>
+  <section class="install-guide"><details><summary>iPhoneのホーム画面に追加して使う方法</summary><div class="install-guide-body"><p>このアプリをHTTPSサイトに公開したあと、Safariで一度オンライン表示します。Safariの共有メニュー → 「ホーム画面に追加」でアプリのように起動できます。</p><p>初回に必要なファイルの保存が完了した後は、通信なしで求人検索できます。ファイルアプリのHTMLプレビューでは正常に動かない場合があります。</p></div></details></section>
+  <footer><span>RECRUIT / TAG LAB</span><span>収録：158人　·　日本版 2026.10.14 時点</span><small>非公式ファンメイドツール。Arknights / Hypergryph / Yostarとは無関係です。</small></footer>
+</main>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<a id="mobile-jump" href="#results" class="mobile-jump" aria-label="おすすめの組み合わせへ移動"><span id="jump-label">結果を見る</span><span class="jump-arrow">↗</span></a>
+<dialog id="operator-modal" class="operator-modal" aria-label="オペレーター一覧"><div class="modal-inner"><div class="modal-header"><div><div class="overline">OPERATOR INDEX</div><h2>キャラクター一覧 <span>158人</span></h2></div><button id="modal-close" class="close-btn" aria-label="閉じる">×</button></div><label class="search-wrap index-search"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.2"/><path d="m15.6 15.6 4.3 4.3"/></svg><input id="op-search" type="search" placeholder="名前・タグで検索" aria-label="キャラクターの検索" /></label><div class="index-legend">名前やタグで逆引き可能。タグをセットすると検索例を表示できます。</div><div id="op-list" class="operator-list"></div></div></dialog>
+<script>
+const OPERATORS = [{"n":"Castle-3","s":1,"t":["前衛","近距離","支援","ロボット"]},{"n":"Friston-3","s":1,"t":["重装","近距離","防御","ロボット"]},{"n":"ジャスティスナイト","s":1,"t":["狙撃","遠距離","支援","ロボット"]},{"n":"Lancet-2","s":1,"t":["医療","遠距離","治療","ロボット"]},{"n":"THRM-EX","s":1,"t":["特殊","近距離","爆発力","ロボット"]},{"n":"ヤトウ","s":2,"t":["先鋒","初期","近距離"]},{"n":"ノイルホーン","s":2,"t":["重装","初期","近距離"]},{"n":"レンジャー","s":2,"t":["狙撃","初期","遠距離"]},{"n":"12F","s":2,"t":["術師","初期","遠距離"]},{"n":"ドゥリン","s":2,"t":["術師","初期","遠距離"]},{"n":"バニラ","s":3,"t":["先鋒","近距離","COST回復"]},{"n":"フェン","s":3,"t":["先鋒","近距離","COST回復"]},{"n":"プリュム","s":3,"t":["先鋒","近距離","火力","COST回復"]},{"n":"ポプカル","s":3,"t":["前衛","近距離","生存","範囲攻撃"]},{"n":"ミッドナイト","s":3,"t":["前衛","近距離","火力"]},{"n":"メランサ","s":3,"t":["前衛","近距離","火力","生存"]},{"n":"スポット","s":3,"t":["重装","近距離","防御","治療"]},{"n":"ビーグル","s":3,"t":["重装","近距離","防御"]},{"n":"アドナキエル","s":3,"t":["狙撃","遠距離","火力"]},{"n":"カタパルト","s":3,"t":["狙撃","遠距離","範囲攻撃"]},{"n":"クルース","s":3,"t":["狙撃","遠距離","火力"]},{"n":"スチュワード","s":3,"t":["術師","遠距離","火力"]},{"n":"ラヴァ","s":3,"t":["術師","遠距離","範囲攻撃"]},{"n":"アンセル","s":3,"t":["医療","遠距離","治療"]},{"n":"ハイビスカス","s":3,"t":["医療","遠距離","治療"]},{"n":"オーキッド","s":3,"t":["補助","遠距離","減速"]},{"n":"ヴィグナ","s":4,"t":["先鋒","近距離","火力","COST回復"]},{"n":"スカベンジャー","s":4,"t":["先鋒","近距離","火力","COST回復"]},{"n":"テンニンカ","s":4,"t":["先鋒","近距離","治療","COST回復"]},{"n":"ウタゲ","s":4,"t":["前衛","近距離","火力","生存"]},{"n":"エステル","s":4,"t":["前衛","近距離","生存","範囲攻撃"]},{"n":"カッター","s":4,"t":["前衛","近距離","火力","爆発力"]},{"n":"ドーベルマン","s":4,"t":["前衛","近距離","火力","支援"]},{"n":"ビーハンター","s":4,"t":["前衛","近距離","火力"]},{"n":"フロストリーフ","s":4,"t":["前衛","近距離","火力","減速"]},{"n":"マトイマル","s":4,"t":["前衛","近距離","火力","生存"]},{"n":"ムース","s":4,"t":["前衛","近距離","火力"]},{"n":"クオーラ","s":4,"t":["重装","近距離","防御"]},{"n":"グム","s":4,"t":["重装","近距離","防御","治療"]},{"n":"マッターホルン","s":4,"t":["重装","近距離","防御"]},{"n":"アシッドドロップ","s":4,"t":["狙撃","遠距離","火力"]},{"n":"アンブリエル","s":4,"t":["狙撃","遠距離","火力","減速"]},{"n":"ヴァーミル","s":4,"t":["狙撃","遠距離","火力"]},{"n":"ジェシカ","s":4,"t":["狙撃","遠距離","火力","生存"]},{"n":"シラユキ","s":4,"t":["狙撃","遠距離","範囲攻撃","減速"]},{"n":"メイ","s":4,"t":["狙撃","遠距離","火力","減速"]},{"n":"メテオ","s":4,"t":["狙撃","遠距離","火力","弱化"]},{"n":"ギターノ","s":4,"t":["術師","遠距離","範囲攻撃"]},{"n":"グレイ","s":4,"t":["術師","遠距離","範囲攻撃","減速"]},{"n":"ヘイズ","s":4,"t":["術師","遠距離","火力","弱化"]},{"n":"カシャ","s":4,"t":["術師","遠距離","火力","牽制"]},{"n":"ススーロ","s":4,"t":["医療","遠距離","治療"]},{"n":"セイリュウ","s":4,"t":["医療","遠距離","治療","支援"]},{"n":"パフューマー","s":4,"t":["医療","遠距離","治療"]},{"n":"ミルラ","s":4,"t":["医療","遠距離","治療"]},{"n":"アーススピリット","s":4,"t":["補助","遠距離","減速"]},{"n":"ポデンコ","s":4,"t":["補助","遠距離","治療","減速"]},{"n":"グラベル","s":4,"t":["特殊","近距離","防御","高速再配置"]},{"n":"ジェイ","s":4,"t":["特殊","近距離","火力","高速再配置"]},{"n":"ショウ","s":4,"t":["特殊","近距離","強制移動"]},{"n":"ロープ","s":4,"t":["特殊","近距離","強制移動"]},{"n":"キアーベ","s":5,"t":["先鋒","近距離","火力","COST回復"]},{"n":"ズィマー","s":5,"t":["先鋒","近距離","支援","COST回復"]},{"n":"テキサス","s":5,"t":["先鋒","近距離","牽制","COST回復"]},{"n":"リード","s":5,"t":["先鋒","近距離","火力","COST回復"]},{"n":"エリジウム","s":5,"t":["先鋒","近距離","支援","COST回復"]},{"n":"アステシア","s":5,"t":["前衛","近距離","火力","防御"]},{"n":"インドラ","s":5,"t":["前衛","近距離","火力","生存"]},{"n":"スペクター","s":5,"t":["前衛","近距離","生存","範囲攻撃"]},{"n":"スワイヤー","s":5,"t":["前衛","近距離","火力","支援"]},{"n":"フリント","s":5,"t":["前衛","近距離","火力"]},{"n":"ブローカ","s":5,"t":["前衛","近距離","生存","範囲攻撃"]},{"n":"エアースカーペ","s":5,"t":["前衛","近距離","火力","範囲攻撃"]},{"n":"ヴァルカン","s":5,"t":["重装","近距離","火力","生存","防御"]},{"n":"ウン","s":5,"t":["重装","近距離","防御","治療"]},{"n":"クロワッサン","s":5,"t":["重装","近距離","防御","強制移動"]},{"n":"ニアール","s":5,"t":["重装","近距離","防御","治療"]},{"n":"リスカム","s":5,"t":["重装","近距離","火力","防御"]},{"n":"アスベストス","s":5,"t":["重装","近距離","火力","防御"]},{"n":"アズリウス","s":5,"t":["狙撃","遠距離","火力"]},{"n":"アンドレアナ","s":5,"t":["狙撃","遠距離","火力","減速"]},{"n":"イグゼキュター","s":5,"t":["狙撃","遠距離","範囲攻撃"]},{"n":"グレースロート","s":5,"t":["狙撃","遠距離","火力"]},{"n":"シェーシャ","s":5,"t":["狙撃","遠距離","範囲攻撃","弱化"]},{"n":"ファイヤーウォッチ","s":5,"t":["狙撃","遠距離","火力","爆発力"]},{"n":"プラチナ","s":5,"t":["狙撃","遠距離","火力"]},{"n":"プロヴァンス","s":5,"t":["狙撃","遠距離","火力"]},{"n":"メテオリーテ","s":5,"t":["狙撃","遠距離","範囲攻撃","弱化"]},{"n":"ナイトメア","s":5,"t":["術師","遠距離","火力","治療","減速"]},{"n":"ビーズワクス","s":5,"t":["術師","遠距離","防御","範囲攻撃"]},{"n":"レイズ","s":5,"t":["術師","遠距離","火力"]},{"n":"レオンハルト","s":5,"t":["術師","遠距離","範囲攻撃","爆発力"]},{"n":"サイレンス","s":5,"t":["医療","遠距離","治療"]},{"n":"フィリオプシス","s":5,"t":["医療","遠距離","治療","支援"]},{"n":"ワルファリン","s":5,"t":["医療","遠距離","治療","支援"]},{"n":"イースチナ","s":5,"t":["補助","遠距離","火力","減速"]},{"n":"グラウコス","s":5,"t":["補助","遠距離","減速","牽制"]},{"n":"シャマレ","s":5,"t":["補助","遠距離","弱化"]},{"n":"プラマニクス","s":5,"t":["補助","遠距離","弱化"]},{"n":"メイヤー","s":5,"t":["補助","遠距離","牽制","召喚"]},{"n":"ツキノギ","s":5,"t":["補助","遠距離","生存","支援"]},{"n":"エフイーター","s":5,"t":["特殊","近距離","減速","強制移動"]},{"n":"クリフハート","s":5,"t":["特殊","近距離","火力","強制移動"]},{"n":"マンティコア","s":5,"t":["特殊","近距離","火力","生存"]},{"n":"レッド","s":5,"t":["特殊","近距離","牽制","高速再配置"]},{"n":"ワイフー","s":5,"t":["特殊","近距離","弱化","高速再配置"]},{"n":"シージ","s":6,"t":["先鋒","近距離","火力","COST回復"]},{"n":"バグパイプ","s":6,"t":["先鋒","近距離","火力","COST回復"]},{"n":"シルバーアッシュ","s":6,"t":["前衛","近距離","火力","支援"]},{"n":"スカジ","s":6,"t":["前衛","近距離","火力","生存"]},{"n":"ソーンズ","s":6,"t":["前衛","近距離","火力","防御"]},{"n":"チェン","s":6,"t":["前衛","近距離","火力","爆発力"]},{"n":"ブレイズ","s":6,"t":["前衛","近距離","火力","生存"]},{"n":"ヘラグ","s":6,"t":["前衛","近距離","火力","生存"]},{"n":"サリア","s":6,"t":["重装","近距離","防御","治療","支援"]},{"n":"ホシグマ","s":6,"t":["重装","近距離","火力","防御"]},{"n":"ユーネクテス","s":6,"t":["重装","近距離","火力","生存","防御"]},{"n":"エクシア","s":6,"t":["狙撃","遠距離","火力"]},{"n":"シュヴァルツ","s":6,"t":["狙撃","遠距離","火力"]},{"n":"ロサ","s":6,"t":["狙撃","遠距離","火力","牽制"]},{"n":"イフリータ","s":6,"t":["術師","遠距離","範囲攻撃","弱化"]},{"n":"ケオベ","s":6,"t":["術師","遠距離","火力","牽制"]},{"n":"モスティマ","s":6,"t":["術師","遠距離","支援","範囲攻撃","牽制"]},{"n":"シャイニング","s":6,"t":["医療","遠距離","治療","支援"]},{"n":"ナイチンゲール","s":6,"t":["医療","遠距離","治療","支援"]},{"n":"マゼラン","s":6,"t":["補助","遠距離","火力","支援","減速"]},{"n":"スズラン","s":6,"t":["補助","遠距離","火力","支援","減速"]},{"n":"ア","s":6,"t":["特殊","遠距離","火力","支援"]},{"n":"ファントム","s":6,"t":["特殊","近距離","火力","牽制","高速再配置"]},{"n":"ウィーディ","s":6,"t":["特殊","近距離","火力","牽制","強制移動"]},{"n":"スルト","s":6,"t":["前衛","近距離","火力"]},{"n":"エイプリル","s":5,"t":["狙撃","遠距離","火力"]},{"n":"アレーン","s":4,"t":["前衛","近距離","火力"]},{"n":"PhonoR-0","s":1,"t":["補助","遠距離","元素","ロボット"]},{"n":"バブル","s":4,"t":["重装","近距離","防御"]},{"n":"アオスタ","s":5,"t":["狙撃","遠距離","範囲攻撃"]},{"n":"ブレミシャイン","s":6,"t":["重装","近距離","火力","防御","治療"]},{"n":"マドロック","s":6,"t":["重装","近距離","生存","防御","火力"]},{"n":"ウィスパーレイン","s":5,"t":["医療","遠距離","治療"]},{"n":"ジャッキー","s":4,"t":["前衛","近距離","火力"]},{"n":"マウンテン","s":6,"t":["前衛","近距離","火力","生存"]},{"n":"カフカ","s":5,"t":["特殊","近距離","高速再配置","牽制"]},{"n":"パインコーン","s":4,"t":["狙撃","遠距離","範囲攻撃","火力"]},{"n":"アルケット","s":6,"t":["狙撃","遠距離","火力"]},{"n":"アイリス","s":5,"t":["術師","遠距離","火力"]},{"n":"ビーンストーク","s":4,"t":["先鋒","遠距離","COST回復","召喚"]},{"n":"サガ","s":6,"t":["先鋒","近距離","COST回復","火力"]},{"n":"ウユウ","s":5,"t":["特殊","近距離","高速再配置","火力"]},{"n":"CONFESS-47","s":1,"t":["先鋒","近距離","ロボット","牽制"]},{"n":"パッセンジャー","s":6,"t":["術師","遠距離","火力"]},{"n":"トギフォンス","s":5,"t":["狙撃","遠距離","火力"]},{"n":"ケルシー","s":6,"t":["医療","遠距離","召喚","治療"]},{"n":"アカフユ","s":5,"t":["前衛","近距離","生存","火力"]},{"n":"カーネリアン","s":6,"t":["術師","遠距離","範囲攻撃","防御"]},{"n":"キララ","s":5,"t":["特殊","近距離","生存","火力"]},{"n":"インディゴ","s":4,"t":["術師","遠距離","牽制","火力"]},{"n":"パラス","s":6,"t":["前衛","近距離","火力","支援"]},{"n":"GALLUS²","s":1,"t":["術師","遠距離","ロボット","弱化"]}];
+/* RECRUIT / TAG LAB — 全機能オフライン・外部ライブラリ不使用 */
+'use strict';
+const TAG_GROUPS = [
+  {label:'確定タグ',note:'★6・★5を狙う',tags:['上級エリート','エリート']},
+  {label:'職業タイプ',note:'8種類',tags:['先鋒','前衛','重装','狙撃','術師','医療','補助','特殊']},
+  {label:'配置位置',note:'2種類',tags:['近距離','遠距離']},
+  {label:'特性タグ',note:'候補を絞る',tags:['ロボット','元素','爆発力','召喚','弱化','牽制','支援','強制移動','高速再配置','火力','生存','防御','治療','範囲攻撃','減速','COST回復','初期']}
+];
+const ALL_TAGS = TAG_GROUPS.flatMap(group => group.tags);
+const SAFE_OPS = OPERATORS.map(o => ({...o, ts:new Set(o.t.concat(o.s===6?['上級エリート']:o.s===5?['エリート']:[]))}));
+const state={selected:[],mode:'normal',expanded:new Set(),showAll:false,hiddenFirst:false,onlyGuaranteed:false};
+const $=id=>document.getElementById(id);
+const escapeHtml=str=>String(str).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+let toastTimer;
+function toast(message){const el=$('toast');el.textContent=message;el.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('visible'),2100)}
+function loadState(){try{const saved=JSON.parse(localStorage.getItem('recruit-tag-lab-v1')||'{}');if(Array.isArray(saved.selected))state.selected=[...new Set(saved.selected.filter(t=>ALL_TAGS.includes(t)))].slice(0,5);if(saved.mode==='robot')state.mode='robot';if(saved.onlyGuaranteed===true)state.onlyGuaranteed=true}catch{}}
+function saveState(){try{localStorage.setItem('recruit-tag-lab-v1',JSON.stringify({selected:state.selected,mode:state.mode,onlyGuaranteed:state.onlyGuaranteed}))}catch{}}
+function opCandidates(tags,mode){
+  const isTop=tags.includes('上級エリート'),isSenior=tags.includes('エリート');
+  if(isTop&&isSenior)return [];
+  if(mode==='robot'&&(isTop||isSenior))return [];
+  if(mode==='normal'&&tags.includes('ロボット'))return [];
+  return SAFE_OPS.filter(o=>{
+    if(mode==='robot'&&(o.s<1||o.s>4))return false;
+    if(mode==='normal'&&(o.s<3||(o.s===6&&!isTop)))return false;
+    if(isTop&&o.s!==6)return false;
+    if(isSenior&&o.s!==5)return false;
+    return tags.every(t=>o.ts.has(t));
+  });
+}
+function combinationKey(tags){return [...tags].sort().join('||')}
+function classification(ops,tags,mode){
+ const min=Math.min(...ops.map(op=>op.s));const max=Math.max(...ops.map(op=>op.s));
+ if(mode==='robot'&&max===1)return {level:7,badge:'★1 ロボット',css:'tier-5',kind:'robot',min,max};
+ if(min===6)return {level:6,badge:'★6確定',css:'tier-6',kind:'guarantee',min,max};
+ if(min===5)return {level:5,badge:'★5確定',css:'tier-5',kind:'guarantee',min,max};
+ if(min===4)return {level:4,badge:'★4以上確定',css:'tier-4',kind:'guarantee',min,max};
+ return {level:mode==='robot'?0:max===5?2:1,badge:max===5?'★5候補あり':'通常候補',css:'tier-low',kind:'regular',min,max};
+}
+function collectCombinations(tags,mode){
+ const list=[],invalid=[];
+ const walk=(start,picked)=>{
+  if(picked.length){const ops=opCandidates(picked,mode);if(ops.length){list.push({tags:[...picked],ops,score:classification(ops,picked,mode),key:combinationKey(picked)})}else invalid.push([...picked])}
+  if(picked.length===3)return;
+  for(let i=start;i<tags.length;i++){picked.push(tags[i]);walk(i+1,picked);picked.pop()}
+ };walk(0,[]);
+ // 同じ候補全員が選べるなら、余分なタグを追加するメリットはない。
+ // 候補の内容が同一の組み合わせのうち、最少タグ数だけをおすすめとする。
+ const signatures=new Map();
+ for(const combo of list){
+   const sig=combo.ops.map(op=>op.n).sort().join('\u001F');
+   combo.signature=sig;
+   signatures.set(sig,Math.min(signatures.get(sig)??Infinity,combo.tags.length));
+ }
+ for(const combo of list) combo.redundant=combo.tags.length>signatures.get(combo.signature);
+ list.sort((a,b)=>b.score.level-a.score.level || a.ops.length-b.ops.length || a.tags.length-b.tags.length || b.score.max-a.score.max || a.key.localeCompare(b.key,'ja'));
+ return {list,invalid};
+}
+function tierForSolo(tag){const ops=opCandidates([tag],'normal');return ops.length?classification(ops,[tag],'normal').level:0}
+const SOLO_RANK=new Map(ALL_TAGS.map(tag=>[tag,tierForSolo(tag)]));
+function toggleTag(tag){
+ const at=state.selected.indexOf(tag);
+ if(at>=0)state.selected.splice(at,1);
+ else if(state.selected.length>=5){toast('ゲーム画面のタグは最大5つです');return}
+ else state.selected.push(tag);
+ state.expanded.clear();state.showAll=false;state.hiddenFirst=false;render();saveState();
+}
+function setMode(mode){if(state.mode===mode)return;state.mode=mode;state.expanded.clear();state.showAll=false;state.hiddenFirst=false;render();saveState()}
+function renderSelected(){
+ $('tag-counter').textContent=state.selected.length+' / 5';$('selected-num').textContent=state.selected.length;
+ $('selected-tags').innerHTML=state.selected.length?state.selected.map(t=>`<button type="button" class="tag-selected" data-remove="${escapeHtml(t)}" aria-label="${escapeHtml(t)}を解除">${escapeHtml(t)} <b aria-hidden="true">×</b></button>`).join(''):'<span class="empty-slot">タグをタップして追加</span>';
+ $('mode-normal').classList.toggle('active',state.mode==='normal');$('mode-robot').classList.toggle('active',state.mode==='robot');
+ $('mode-normal').setAttribute('aria-pressed',state.mode==='normal');$('mode-robot').setAttribute('aria-pressed',state.mode==='robot');
+}
+function renderTags(){
+ const query=$('tag-search').value.trim().toLowerCase();
+ const groups=TAG_GROUPS.map(group=>{
+  const visible=group.tags.filter(tag=>tag.toLowerCase().includes(query)).sort((a,b)=>(SOLO_RANK.get(b)||0)-(SOLO_RANK.get(a)||0) || group.tags.indexOf(a)-group.tags.indexOf(b));
+  if(!visible.length)return '';
+  return `<div class="tag-group"><div class="group-header"><span class="group-accent"></span>${escapeHtml(group.label)}<span class="category-note">${escapeHtml(group.note)}</span></div><div class="group-tags">${visible.map(tag=>{
+    const picked=state.selected.includes(tag),full=state.selected.length===5&&!picked;
+    const tier=SOLO_RANK.get(tag)||0;
+    const badge=tag==='ロボット'?'★1':tier===6?'★6':tier===5?'★5+':tier===4?'★4+':'';
+    return `<button type="button" data-tag="${escapeHtml(tag)}" class="tag-btn${picked?' selected':''}${full?' is-full':''}" aria-pressed="${picked}" ${full?'disabled':''}>${escapeHtml(tag)}${badge?`<small class="${tier>=5?'gold':''}">${badge}</small>`:''}</button>`;
+  }).join('')}</div></div>`;
+ }).join('');
+ $('tag-groups').innerHTML=groups||'<div class="no-tags" style="padding:22px">一致するタグがありません</div>';
+}
+function opChip(op){return `<span class="op-chip star${op.s}"><b>★${op.s}</b>${escapeHtml(op.n)}</span>`}
+function renderCard(combo,idx){
+ const {tags,ops,score,key}=combo,expanded=state.expanded.has(key)||(idx===0&&ops.length<=12&&!state.hiddenFirst);
+ const uniq=ops.length===1, topCard=idx===0&&score.level>=4;
+ return `<article class="combo-card${topCard?' best':''}${expanded?' expanded':''}" data-combo="${escapeHtml(key)}">
+  <button type="button" class="card-button" data-expand="${escapeHtml(key)}" aria-expanded="${expanded}">
+   <div class="card-top"><span class="tier ${score.css}">${escapeHtml(score.badge)}</span><span class="card-rank">${idx===0?'BEST MATCH':'OPTION '+String(idx+1).padStart(2,'0')}</span></div>
+   <div class="card-tags">${tags.map(t=>`<span>${escapeHtml(t)}</span>`).join('')}</div>
+   <div class="card-bottom"><span>${uniq?'対象1人に絞り込み':`候補 ${ops.length}人`}</span><div class="right"><span>★${score.min}${score.min!==score.max?'〜'+score.max:''}</span><span class="chev">⌄</span></div></div>
+  </button>
+  ${!expanded?`<div class="preview-names">${escapeHtml(ops.slice(0,3).map(x=>x.n).join(' / '))}${ops.length>3?' ほか'+(ops.length-3)+'人':''}</div>`:''}
+  <div class="operator-detail"><p class="detail-label">排出候補（タグがすべて残った場合）</p><div class="op-chips">${[...ops].sort((a,b)=>b.s-a.s||a.n.localeCompare(b.n,'ja')).map(opChip).join('')}</div><p class="detail-footer">この募集ではゲーム内で「${tags.join('＋')}」を選択してください。募集時間は<strong>${state.mode==='normal'?'9:00':'3:50'}</strong>。</p></div>
+ </article>`
+}
+function renderResults(){
+ const note=state.mode==='normal'?'9時間設定での判定。タグが消えなかった場合の最低レア度です。':'3時間50分設定。ロボット（★1）を狙う特別モードです。★5・★6は対象外。';
+ $('mode-note').textContent=note;
+ const jump=$('mobile-jump');
+ if(!state.selected.length){$('combo-count').textContent='—';jump.classList.remove('show');$('result-content').innerHTML=`<div class="result-empty"><div class="empty-icon"><span>⌕</span></div><h3>タグを選択してください</h3><p>左側からゲームに表示されたタグを選ぶと、<br>候補とおすすめの組み合わせを自動計算します。</p></div>`;return}
+ const {list,invalid}=collectCombinations(state.selected,state.mode);
+ $('combo-count').textContent=list.length+'通り';
+ jump.classList.add('show');$('jump-label').textContent=state.mode==='robot'?'ロボット候補を見る':list.some(c=>c.score.level>=4)?'高レアの候補を見る':'検索結果を見る';
+ const robotWarning=state.mode==='normal'&&state.selected.includes('ロボット')?`<div class="invalid-note">「ロボット」は9時間では排出できません。★1を狙うなら上の募集時間を <button type="button" class="inline-link" id="switch-robot">3:50に切り替え</button> てください。</div>`:'';
+ const eliteWarning=state.mode==='robot'&&state.selected.some(t=>t==='上級エリート'||t==='エリート')?'<div class="invalid-note">「エリート」「上級エリート」は9:00で使用してください。3:50では対象外です。</div>':'';
+ const recommended=list.filter(c=>!c.redundant);
+ const meaningful=state.onlyGuaranteed?recommended.filter(c=>state.mode==='robot'?c.score.kind==='robot':c.score.min>=4):recommended;
+ const guaranteed=recommended.filter(c=>c.score.level>=4).length;
+ const best=meaningful[0]||recommended[0];let summary='';
+ if(best){
+   const important=best.score.level>=4;
+   const descr=best.score.kind==='robot'?'ロボットの候補を絞り込めます。3:50に設定してください。':important?'このタグの組み合わせが、今回もっとも有利な選択肢です。':'★4以上が確定する組み合わせは見つかりませんでした。';
+   summary=`<div class="result-summary${important?'':' neutral'}"><div class="sum-kicker">${important?'PRIORITY RESULT':'SEARCH RESULT'}</div><h3>${important?escapeHtml(best.score.badge)+' の組み合わせあり':'確定★4以上なし'}</h3><p>${descr}${guaranteed>1?' 優先候補は'+guaranteed+'通りあります。':''}</p></div>`;
+ }
+ const visible=state.showAll ? list.filter(c=>!state.onlyGuaranteed||(state.mode==='robot'?c.score.kind==='robot':c.score.min>=4)) : meaningful.slice(0,8);
+ const filterText=state.mode==='robot'?'★1ロボット候補のみ':'★4以上確定だけ';
+ const filterBar=`<div class="filter-bar"><div class="filter-count">無駄なタグを省いた<strong>${meaningful.length}通り</strong>の候補</div><button type="button" id="guarantee-filter" class="filter-btn${state.onlyGuaranteed?' active':''}" aria-pressed="${state.onlyGuaranteed}">${state.onlyGuaranteed?'✓ ':''}${filterText}</button></div>`;
+ const emptyFilter=state.onlyGuaranteed&&!meaningful.length?`<div class="invalid-note">${state.mode==='robot'?'ロボット':'★4以上確定'}の組み合わせはありません。<button type="button" class="inline-link" id="show-regular">通常候補を表示</button></div>`:'';
+ const totalVisible=state.onlyGuaranteed?list.filter(c=>state.mode==='robot'?c.score.kind==='robot':c.score.min>=4).length:list.length;
+ let content=list.length?`${summary}${robotWarning}${eliteWarning}${filterBar}${emptyFilter}<div class="subheading"><span>優先順で表示</span><span class="rule"></span><small>${state.showAll?'全組み合わせ':'おすすめ'} ${visible.length}通り</small></div>${visible.map((combo,i)=>renderCard(combo,i)).join('')}${(totalVisible>visible.length||state.showAll)?`<button id="more-btn" type="button" class="more-btn">${state.showAll?'おすすめ表示に戻す':`すべて表示（重複含む：${totalVisible}通り） ↓`}</button>`:''}`:`<div class="result-empty"><div class="empty-icon"><span>!</span></div><h3>対象候補がありません</h3><p>この時間では選択タグの組み合わせが成立しません。<br>募集時間や選択タグを確認してください。</p></div>${robotWarning}${eliteWarning}`;
+ if(invalid.length&&!list.length)content+='<div class="invalid-note">※ 条件が両立しないタグの組み合わせは候補から除外しています。</div>';
+ $('result-content').innerHTML=`<div class="results-inner">${content}</div>`;
+}
+function render(){renderSelected();renderTags();renderResults()}
+function openIndex(){
+ $('operator-modal').showModal();$('op-search').value='';renderIndex();
+}
+function closeIndex(){$('operator-modal').close()}
+function renderIndex(){
+ const q=$('op-search').value.trim().toLowerCase();
+ const matching=SAFE_OPS.filter(o=>o.n.toLowerCase().includes(q)||[...o.ts].some(t=>t.toLowerCase().includes(q))).sort((a,b)=>b.s-a.s||a.n.localeCompare(b.n,'ja'));
+ $('op-list').innerHTML=matching.length?matching.map(op=>`<div class="operator-row"><div class="operator-name"><div class="operator-rarity">${'★'.repeat(op.s)}</div>${escapeHtml(op.n)}<div class="operator-class">${escapeHtml(op.t[0])}</div></div><div class="operator-row-tags">${op.t.slice(1).map(t=>`<span>${escapeHtml(t)}</span>`).join('')}</div><button type="button" data-op="${escapeHtml(op.n)}" aria-label="${escapeHtml(op.n)}のおすすめタグで検索">タグをセット</button></div>`).join(''):'<div class="search-notfound">一致するオペレーターがいません</div>';
+}
+function suggestedForOperator(op){
+ const mode=op.s===1?'robot':'normal';
+ const pool=[...op.ts].filter(t=>ALL_TAGS.includes(t));
+ if(op.s===6&&!pool.includes('上級エリート'))pool.push('上級エリート');
+ if(op.s===5&&!pool.includes('エリート'))pool.push('エリート');
+ let best;
+ const visit=(start,picked)=>{
+  if(picked.length){const matches=opCandidates(picked,mode);if(matches.some(x=>x.n===op.n)){
+   const sc=classification(matches,picked,mode);
+   // 候補数の少なさ、最低保証、タグの少なさで検索例を選択
+   const val=sc.level*10000-100*matches.length-10*picked.length;
+   if(!best||val>best.val)best={val,tags:[...picked]};
+  }}
+  if(picked.length===3)return;
+  for(let i=start;i<pool.length;i++){picked.push(pool[i]);visit(i+1,picked);picked.pop()}
+ };visit(0,[]);
+ return {tags:best?.tags||pool.slice(0,3),mode};
+}
+function setOperatorTags(name){
+ const op=SAFE_OPS.find(x=>x.n===name);if(!op)return;
+ const proposal=suggestedForOperator(op);state.selected=proposal.tags;state.mode=proposal.mode;state.showAll=false;state.expanded.clear();state.hiddenFirst=false;saveState();render();closeIndex();$('input-panel').scrollIntoView({behavior:'smooth',block:'start'});toast(op.n+' のタグをセットしました');
+}
+function bind(){
+ $('tag-groups').addEventListener('click',e=>{const btn=e.target.closest('[data-tag]');if(btn)toggleTag(btn.dataset.tag)});
+ $('selected-tags').addEventListener('click',e=>{const btn=e.target.closest('[data-remove]');if(btn)toggleTag(btn.dataset.remove)});
+ $('tag-search').addEventListener('input',renderTags);
+ $('clear-btn').addEventListener('click',()=>{state.selected=[];state.showAll=false;state.expanded.clear();state.hiddenFirst=false;saveState();render();toast('タグを解除しました')});
+ $('mode-normal').addEventListener('click',()=>setMode('normal'));
+ $('mode-robot').addEventListener('click',()=>setMode('robot'));
+ $('result-content').addEventListener('click',e=>{
+  const change=e.target.closest('#switch-robot');if(change){setMode('robot');return}
+  const filter=e.target.closest('#guarantee-filter');if(filter){state.onlyGuaranteed=!state.onlyGuaranteed;state.showAll=false;state.hiddenFirst=false;state.expanded.clear();saveState();renderResults();return}
+  const showRegular=e.target.closest('#show-regular');if(showRegular){state.onlyGuaranteed=false;saveState();renderResults();return}
+  const more=e.target.closest('#more-btn');if(more){state.showAll=!state.showAll;state.hiddenFirst=false;state.expanded.clear();renderResults();return}
+  const expand=e.target.closest('[data-expand]');if(expand){const key=expand.dataset.expand;const best=collectCombinations(state.selected,state.mode).list[0];const auto=best?.key===key && best.ops.length<=12;const opened=state.expanded.has(key)||(auto&&!state.hiddenFirst);if(opened){state.expanded.delete(key);if(auto)state.hiddenFirst=true;}else{state.expanded.add(key);state.hiddenFirst=false;}renderResults()}
+ });
+ $('open-index').addEventListener('click',openIndex);$('modal-close').addEventListener('click',closeIndex);
+ $('op-search').addEventListener('input',renderIndex);
+ $('op-list').addEventListener('click',e=>{const btn=e.target.closest('[data-op]');if(btn)setOperatorTags(btn.dataset.op)});
+ $('operator-modal').addEventListener('click',e=>{if(e.target===$('operator-modal'))closeIndex()});
+ $('mobile-jump').addEventListener('click',()=>{$('mobile-jump').classList.remove('show')});
+}
+loadState();bind();render();
+// 軽量な計算 API をテスト時にも使えるようにする（オフラインで動作）
+window.RecruitTagLab={opCandidates,collectCombinations,suggestedForOperator,OPERATORS:SAFE_OPS,ALL_TAGS};
+
+</script>
+<script>if ("serviceWorker" in navigator && location.protocol !== "file:") navigator.serviceWorker.register("./sw.js").catch(()=>{});</script>
+</body>
+</html>
