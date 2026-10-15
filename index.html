@@ -198,7 +198,7 @@ function resetForNext(){
  const el=$('toast');el.innerHTML='次の求人を入力できます <button id="undo-reset" type="button">元に戻す</button>';el.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>{el.classList.remove('visible');state.previousTags=null},7000);
 }
 function undoReset(){if(!state.previousTags)return;state.selected=state.previousTags;state.previousTags=null;clearTimeout(toastTimer);$('toast').classList.remove('visible');saveState();render()}
-function jumpTo(target){const el=$(target);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
+function jumpTo(target){const active=document.activeElement;if(active&&active.tagName==='INPUT')active.blur();const el=$(target);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
 function loadState(){try{const saved=JSON.parse(localStorage.getItem('recruit-tag-lab-v1')||'{}');if(Array.isArray(saved.selected))state.selected=[...new Set(saved.selected.filter(t=>ALL_TAGS.includes(t)))].slice(0,5);if(saved.mode==='robot')state.mode='robot';if(saved.onlyGuaranteed===true)state.onlyGuaranteed=true}catch{}}
 function saveState(){try{localStorage.setItem('recruit-tag-lab-v1',JSON.stringify({selected:state.selected,mode:state.mode,onlyGuaranteed:state.onlyGuaranteed}))}catch{}}
 function opCandidates(tags,mode){
@@ -310,7 +310,7 @@ function renderResults(){
    const descr=best.score.kind==='robot'?'ロボットの候補を絞り込めます。3:50に設定してください。':important?'このタグの組み合わせが、今回もっとも有利な選択肢です。':'★4以上が確定する組み合わせは見つかりませんでした。';
    summary=`<div class="result-summary${important?'':' neutral'}"><div class="sum-kicker">${important?'PRIORITY RESULT':'SEARCH RESULT'}</div><h3>${important?escapeHtml(best.score.badge)+' の組み合わせあり':'確定★4以上なし'}</h3><p>${descr}${guaranteed>1?' 優先候補は'+guaranteed+'通りあります。':''}</p></div>`;
  }
- const visible=state.showAll ? list.filter(c=>!state.onlyGuaranteed||(state.mode==='robot'?c.score.kind==='robot':c.score.min>=4)) : meaningful.slice(0,8);
+ const visible=state.showAll ? list.filter(c=>!state.onlyGuaranteed||(state.mode==='robot'?c.score.kind==='robot':c.score.min>=4)) : meaningful.slice(0,5);
  const filterText=state.mode==='robot'?'★1ロボット候補のみ':'★4以上確定だけ';
  const filterBar=`<div class="filter-bar"><div class="filter-count">無駄なタグを省いた<strong>${meaningful.length}通り</strong>の候補</div><button type="button" id="guarantee-filter" class="filter-btn${state.onlyGuaranteed?' active':''}" aria-pressed="${state.onlyGuaranteed}">${state.onlyGuaranteed?'✓ ':''}${filterText}</button></div>`;
  const emptyFilter=state.onlyGuaranteed&&!meaningful.length?`<div class="invalid-note">${state.mode==='robot'?'ロボット':'★4以上確定'}の組み合わせはありません。<button type="button" class="inline-link" id="show-regular">通常候補を表示</button></div>`:'';
