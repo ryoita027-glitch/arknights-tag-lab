@@ -1,5 +1,5 @@
-// RECRUIT / TAG LAB: static offline-first PWA, 2026-10-16 (White Wiki link update)
-const CACHE_NAME='recruit-tag-lab-20261016-wiki-v4';
+// RECRUIT / TAG LAB: static offline-first PWA, 2026-10-16 (mobile usability update)
+const CACHE_NAME='recruit-tag-lab-20261016-mobile-v5';
 const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting()));
