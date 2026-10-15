@@ -1,5 +1,5 @@
-// RECRUIT / TAG LAB: static offline-first PWA, 2026-10-15
-const CACHE_NAME='recruit-tag-lab-20261015-v2-deploy';
+// RECRUIT / TAG LAB: static offline-first PWA, 2026-10-15 (data audit refresh)
+const CACHE_NAME='recruit-tag-lab-20261015-audit-v3';
 const ASSETS=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>{
   event.waitUntil(caches.open(CACHE_NAME).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting()));
