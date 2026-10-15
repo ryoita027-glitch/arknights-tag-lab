@@ -78,6 +78,8 @@ const TAG_GROUPS = [
   {label:'特性タグ',note:'候補を絞る',tags:['ロボット','元素','爆発力','召喚','弱化','牽制','支援','強制移動','高速再配置','火力','生存','防御','治療','範囲攻撃','減速','COST回復','初期']}
 ];
 const ALL_TAGS = TAG_GROUPS.flatMap(group => group.tags);
+const JOB_TAGS = new Set(['先鋒','前衛','重装','狙撃','術師','医療','補助','特殊']);
+const displayTag = tag => JOB_TAGS.has(tag) ? tag + 'タイプ' : tag;
 const SAFE_OPS = OPERATORS.map(o => ({...o, ts:new Set(o.t.concat(o.s===6?['上級エリート']:o.s===5?['エリート']:[]))}));
 const state={selected:[],mode:'normal',expanded:new Set(),showAll:false,hiddenFirst:false,onlyGuaranteed:false};
 const $=id=>document.getElementById(id);
@@ -139,20 +141,20 @@ function toggleTag(tag){
 function setMode(mode){if(state.mode===mode)return;state.mode=mode;state.expanded.clear();state.showAll=false;state.hiddenFirst=false;render();saveState()}
 function renderSelected(){
  $('tag-counter').textContent=state.selected.length+' / 5';$('selected-num').textContent=state.selected.length;
- $('selected-tags').innerHTML=state.selected.length?state.selected.map(t=>`<button type="button" class="tag-selected" data-remove="${escapeHtml(t)}" aria-label="${escapeHtml(t)}を解除">${escapeHtml(t)} <b aria-hidden="true">×</b></button>`).join(''):'<span class="empty-slot">タグをタップして追加</span>';
+ $('selected-tags').innerHTML=state.selected.length?state.selected.map(t=>`<button type="button" class="tag-selected" data-remove="${escapeHtml(t)}" aria-label="${escapeHtml(displayTag(t))}を解除">${escapeHtml(displayTag(t))} <b aria-hidden="true">×</b></button>`).join(''):'<span class="empty-slot">タグをタップして追加</span>';
  $('mode-normal').classList.toggle('active',state.mode==='normal');$('mode-robot').classList.toggle('active',state.mode==='robot');
  $('mode-normal').setAttribute('aria-pressed',state.mode==='normal');$('mode-robot').setAttribute('aria-pressed',state.mode==='robot');
 }
 function renderTags(){
  const query=$('tag-search').value.trim().toLowerCase();
  const groups=TAG_GROUPS.map(group=>{
-  const visible=group.tags.filter(tag=>tag.toLowerCase().includes(query)).sort((a,b)=>(SOLO_RANK.get(b)||0)-(SOLO_RANK.get(a)||0) || group.tags.indexOf(a)-group.tags.indexOf(b));
+  const visible=group.tags.filter(tag=>displayTag(tag).toLowerCase().includes(query)).sort((a,b)=>(SOLO_RANK.get(b)||0)-(SOLO_RANK.get(a)||0) || group.tags.indexOf(a)-group.tags.indexOf(b));
   if(!visible.length)return '';
   return `<div class="tag-group"><div class="group-header"><span class="group-accent"></span>${escapeHtml(group.label)}<span class="category-note">${escapeHtml(group.note)}</span></div><div class="group-tags">${visible.map(tag=>{
     const picked=state.selected.includes(tag),full=state.selected.length===5&&!picked;
     const tier=SOLO_RANK.get(tag)||0;
     const badge=tag==='ロボット'?'★1':tier===6?'★6':tier===5?'★5+':tier===4?'★4+':'';
-    return `<button type="button" data-tag="${escapeHtml(tag)}" class="tag-btn${picked?' selected':''}${full?' is-full':''}" aria-pressed="${picked}" ${full?'disabled':''}>${escapeHtml(tag)}${badge?`<small class="${tier>=5?'gold':''}">${badge}</small>`:''}</button>`;
+    return `<button type="button" data-tag="${escapeHtml(tag)}" class="tag-btn${picked?' selected':''}${full?' is-full':''}" aria-pressed="${picked}" ${full?'disabled':''}>${escapeHtml(displayTag(tag))}${badge?`<small class="${tier>=5?'gold':''}">${badge}</small>`:''}</button>`;
   }).join('')}</div></div>`;
  }).join('');
  $('tag-groups').innerHTML=groups||'<div class="no-tags" style="padding:22px">一致するタグがありません</div>';
@@ -164,11 +166,11 @@ function renderCard(combo,idx){
  return `<article class="combo-card${topCard?' best':''}${expanded?' expanded':''}" data-combo="${escapeHtml(key)}">
   <button type="button" class="card-button" data-expand="${escapeHtml(key)}" aria-expanded="${expanded}">
    <div class="card-top"><span class="tier ${score.css}">${escapeHtml(score.badge)}</span><span class="card-rank">${idx===0?'BEST MATCH':'OPTION '+String(idx+1).padStart(2,'0')}</span></div>
-   <div class="card-tags">${tags.map(t=>`<span>${escapeHtml(t)}</span>`).join('')}</div>
+   <div class="card-tags">${tags.map(t=>`<span>${escapeHtml(displayTag(t))}</span>`).join('')}</div>
    <div class="card-bottom"><span>${uniq?'対象1人に絞り込み':`候補 ${ops.length}人`}</span><div class="right"><span>★${score.min}${score.min!==score.max?'〜'+score.max:''}</span><span class="chev">⌄</span></div></div>
   </button>
   ${!expanded?`<div class="preview-names">${escapeHtml(ops.slice(0,3).map(x=>x.n).join(' / '))}${ops.length>3?' ほか'+(ops.length-3)+'人':''}</div>`:''}
-  <div class="operator-detail"><p class="detail-label">排出候補（タグがすべて残った場合）</p><div class="op-chips">${[...ops].sort((a,b)=>b.s-a.s||a.n.localeCompare(b.n,'ja')).map(opChip).join('')}</div><p class="detail-footer">この募集ではゲーム内で「${tags.join('＋')}」を選択してください。募集時間は<strong>${state.mode==='normal'?'9:00':'3:50'}</strong>。</p></div>
+  <div class="operator-detail"><p class="detail-label">排出候補（タグがすべて残った場合）</p><div class="op-chips">${[...ops].sort((a,b)=>b.s-a.s||a.n.localeCompare(b.n,'ja')).map(opChip).join('')}</div><p class="detail-footer">この募集ではゲーム内で「${tags.map(displayTag).join('＋')}」を選択してください。募集時間は<strong>${state.mode==='normal'?'9:00':'3:50'}</strong>。</p></div>
  </article>`
 }
 function renderResults(){
