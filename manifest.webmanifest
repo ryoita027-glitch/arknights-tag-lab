@@ -1,0 +1,26 @@
+{
+  "name": "RECRUIT / TAG LAB - アークナイツ公開求人",
+  "short_name": "求人タグ検索",
+  "description": "公開求人の5タグから★4以上確定の組み合わせを探すオフライン対応ツール",
+  "lang": "ja",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101318",
+  "theme_color": "#11151b",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
