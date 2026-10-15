@@ -36,6 +36,92 @@
 .operator-wiki-link:hover,.operator-wiki-link:focus-visible{color:var(--orange)}
 .operator-wiki-link span{color:#ffbd70;font-size:10px}
 @media(max-width:610px){.op-chip{min-height:44px;padding:10px 9px}.preview-wiki-link{min-height:44px}.operator-wiki-link{min-height:40px}}
+
+/* Mobile-first workflow: see best match while entering the game's five tags. */
+.quick-advice{border:1px solid #726038;background:#262719;margin:12px 24px 3px;padding:15px 16px 14px;position:relative;box-shadow:inset 3px 0 #f3b85e;color:#eaf0f2}
+.quick-advice.is-empty{border-color:#354650;background:#1b242c;box-shadow:none}
+.quick-advice.is-regular{border-color:#50606d;background:#1c2730;box-shadow:inset 3px 0 #759fbb}
+.quick-empty{font-size:12px;line-height:1.6;color:#b6c6d1}
+.quick-label{display:flex;gap:10px;align-items:center;justify-content:space-between;font-size:11px;color:#f1c383;font-weight:850;letter-spacing:.03em}
+.quick-label span{font-weight:500;font-size:11px;color:#b6c2cd}
+.quick-topline{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:9px}
+.quick-topline strong{font-size:19px;line-height:1.4;color:#ffda96}
+.quick-topline>span{font-size:11px;color:#b7c5ca;flex:none}
+.quick-combo{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 12px}
+.quick-combo span{border:1px solid #7d7767;color:#f4ebdf;background:#393b33;padding:6px 8px;font-weight:750;font-size:12px;line-height:1.3}
+.quick-open{width:100%;min-height:44px;border:1px solid #8c764c;background:#4a3b24;color:#ffdb98;font-size:13px;font-weight:850;display:flex;justify-content:space-between;align-items:center;padding:9px 12px}
+.quick-open:active{transform:scale(.99)}
+.quick-no-results{font-size:15px;display:block;margin:8px 0}
+.quick-advice p{color:#b8c3c9;font-size:12px;margin:4px 0}
+.mobile-dock{display:none}
+.toast.visible{pointer-events:auto}
+#toast button{background:#f6cb86;color:#19202a;border:0;font-size:12px;font-weight:850;min-height:40px;padding:7px 12px;margin-left:7px}
+html{scroll-padding-top:18px}
+@media(max-width:610px){
+ html{scroll-padding-top:12px}
+ .app-wrap{padding:0 12px}
+ .topbar{height:56px;padding:0 2px}
+ .brand-logo{width:34px;height:34px}
+ .brand-title{font-size:15px}
+ .brand-over{font-size:8px}
+ .brand-mark{font-size:8px}
+ .offline{font-size:10px;padding:7px 9px;min-height:30px}
+ .hero{padding:15px 4px 12px}
+ .hero .eyebrow{font-size:10px}
+ .hero h1{font-size:22px;line-height:1.3;margin:7px 0 4px}
+ .hero p{font-size:11px;line-height:1.55;margin:0;color:#b6c2cf}
+ .grid-layout{gap:12px}
+ .panel-heading{padding:13px 14px 12px}
+ .panel-heading .number{height:31px;min-width:31px}
+ .panel-heading h2{font-size:16px}
+ .selection{margin:0 12px;padding:12px;min-height:72px}
+ .selection-top{font-size:12px;margin-bottom:8px}
+ .selection-top .text-button{font-size:12px;min-height:36px;padding:5px 8px}
+ .tag-selected{min-height:41px;font-size:13px;padding:9px 10px}
+ .quick-advice{margin:10px 12px 0;padding:12px 13px}
+ .quick-topline strong{font-size:17px}
+ .quick-open{font-size:12px}
+ .time-box{padding:14px 12px 12px}
+ .field-label{font-size:13px}
+ .mode-btn{min-height:57px;padding:9px 11px}
+ .mode-btn strong{font-size:18px}
+ .mode-btn span{font-size:12px}
+ .search-wrap{margin:5px 12px 13px;padding:10px 12px;min-height:48px}
+ .search-wrap input{font-size:16px}
+ .tag-group{padding:0 12px 13px}
+ .group-header{font-size:12px;padding-bottom:7px;margin-bottom:8px}
+ .group-header .category-note{font-size:11px}
+ .group-tags{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+ .tag-btn{min-height:49px;font-size:13px;line-height:1.25;padding:8px 5px;overflow-wrap:anywhere}
+ .tag-btn small{font-size:10px;line-height:1.2}
+ .panel-footnote{margin:0 12px 12px;font-size:11px}
+ .results-inner{padding:12px 10px 20px}
+ .result-summary{padding:15px}
+ .combo-card .card-button{min-height:74px}
+ .card-tags span{font-size:13px}
+ .op-chip{font-size:13px}
+ .preview-names{font-size:12px}
+ .more-btn{min-height:46px;font-size:13px}
+ .filter-bar{flex-direction:column;align-items:stretch}
+ .filter-btn{font-size:13px;min-height:46px}
+ .bottom-info{padding:14px;font-size:12px}
+ footer{padding-bottom:128px}
+ .mobile-dock{display:grid;grid-template-columns:1fr 1.36fr 1fr;gap:4px;position:fixed;left:0;right:0;bottom:0;padding:8px 8px calc(8px + env(safe-area-inset-bottom));z-index:100;background:rgba(14,20,27,.96);border-top:1px solid #536475;box-shadow:0 -12px 32px #0007;backdrop-filter:blur(14px)}
+ .dock-button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border:1px solid #3c4855;background:#242d37;color:#e1e9f0;min-height:55px;min-width:0;padding:6px 5px;font-weight:850;font-size:11px;white-space:nowrap;line-height:1.15}
+ .dock-button .dock-icon{font-size:15px;line-height:1}
+ .dock-button small{font-size:10px;font-weight:500;color:#a9b8c7}
+ .dock-result{background:#ffc777;color:#202018;border-color:#ffc777;font-size:13px}
+ .dock-result:disabled{background:#424751;color:#c5c9ce;border-color:#60646b}
+ .dock-reset{color:#f3c6bc}
+ .mobile-jump{display:none!important}
+ .toast{z-index:150;bottom:calc(84px + env(safe-area-inset-bottom));max-width:calc(100% - 26px);font-size:12px;line-height:1.4;white-space:normal}
+ .operator-row{gap:7px}
+ .operator-name{min-width:72px;font-size:12px}
+ .operator-row>button{min-height:42px;font-size:11px}
+ .operator-row-tags{max-width:52%}
+ .operator-row-tags span{font-size:10px}
+}
+@media(max-width:355px){.app-wrap{padding:0 9px}.group-tags{gap:5px}.tag-btn{font-size:12px}.dock-button{font-size:10px}.dock-result{font-size:11px}.operator-row-tags{max-width:45%}}
 </style>
 </head>
 <body>
@@ -52,11 +138,12 @@
   </section>
   <div class="grid-layout">
    <section class="panel input-panel" id="input-panel" aria-label="タグ入力">
-     <div class="panel-heading"><div class="number">01</div><div><div class="overline">SELECT TAGS</div><h2>表示されたタグを選ぶ</h2></div><span id="tag-counter" class="counter">0 / 5</span></div>
+     <div class="panel-heading"><div class="number">01</div><div><div class="overline">SELECT TAGS</div><h2>画面の5タグを選ぶ</h2></div><span id="tag-counter" class="counter">0 / 5</span></div>
      <div class="selection">
        <div class="selection-top"><span>選択中のタグ <strong id="selected-num">0</strong></span><button type="button" class="text-button" id="clear-btn">すべて解除 ↺</button></div>
        <div id="selected-tags" class="selected-tags" aria-live="polite"><span class="empty-slot">タグをタップして追加</span></div>
      </div>
+     <div id="quick-advice" class="quick-advice" aria-live="polite" aria-atomic="true"><span class="quick-empty">タグを選ぶと、ここに最優先の組み合わせが表示されます。</span></div>
      <div class="time-box"><div class="field-label">募集時間 <span class="field-sub">レア度判定に反映</span></div>
       <div class="segmented" role="group" aria-label="募集時間"><button id="mode-normal" class="mode-btn active" aria-pressed="true"><strong>9:00</strong><span>通常・高レア</span></button><button id="mode-robot" class="mode-btn" aria-pressed="false"><strong>3:50</strong><span>ロボット狙い</span></button></div>
      </div>
@@ -79,7 +166,11 @@
 </main>
 </div>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
-<a id="mobile-jump" href="#results" class="mobile-jump" aria-label="おすすめの組み合わせへ移動"><span id="jump-label">結果を見る</span><span class="jump-arrow">↗</span></a>
+<nav class="mobile-dock" aria-label="操作メニュー">
+  <button type="button" id="dock-input" class="dock-button dock-input" aria-label="タグを選ぶ位置に戻る"><span class="dock-icon">⌗</span><span>タグ入力 <small id="dock-tag-count">0/5</small></span></button>
+  <button type="button" id="mobile-jump" class="dock-button dock-result" disabled aria-label="おすすめの検索結果へ移動"><span class="dock-icon">↗</span><span id="jump-label">タグを選択</span></button>
+  <button type="button" id="dock-reset" class="dock-button dock-reset" aria-label="次の求人に進む・タグを全解除"><span class="dock-icon">↻</span><span>次の求人</span></button>
+</nav>
 <dialog id="operator-modal" class="operator-modal" aria-label="オペレーター一覧"><div class="modal-inner"><div class="modal-header"><div><div class="overline">OPERATOR INDEX</div><h2>キャラクター一覧 <span>158人</span></h2></div><button id="modal-close" class="close-btn" aria-label="閉じる">×</button></div><label class="search-wrap index-search"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.2"/><path d="m15.6 15.6 4.3 4.3"/></svg><input id="op-search" type="search" placeholder="名前・タグで検索" aria-label="キャラクターの検索" /></label><div class="index-legend">キャラ名を押すと白Wikiへ移動します（通信が必要）。「タグをセット」で逆引き検索も可能。</div><div id="op-list" class="operator-list"></div></div></dialog>
 <script>
 const OPERATORS = [{"n":"Castle-3","s":1,"t":["前衛","近距離","支援","ロボット"],"u":"https://arknights.wikiru.jp/index.php?Castle-3"},{"n":"Friston-3","s":1,"t":["重装","近距離","防御","ロボット"],"u":"https://arknights.wikiru.jp/index.php?Friston-3"},{"n":"ジャスティスナイト","s":1,"t":["狙撃","遠距離","支援","ロボット"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B8%E3%83%A3%E3%82%B9%E3%83%86%E3%82%A3%E3%82%B9%E3%83%8A%E3%82%A4%E3%83%88"},{"n":"Lancet-2","s":1,"t":["医療","遠距離","治療","ロボット"],"u":"https://arknights.wikiru.jp/index.php?Lancet-2"},{"n":"THRM-EX","s":1,"t":["特殊","近距離","爆発力","ロボット"],"u":"https://arknights.wikiru.jp/index.php?THRM-EX"},{"n":"ヤトウ","s":2,"t":["先鋒","初期","近距離"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%A4%E3%83%88%E3%82%A6"},{"n":"ノイルホーン","s":2,"t":["重装","初期","近距離"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%8E%E3%82%A4%E3%83%AB%E3%83%9B%E3%83%BC%E3%83%B3"},{"n":"レンジャー","s":2,"t":["狙撃","初期","遠距離"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%AC%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%BC"},{"n":"12F","s":2,"t":["術師","初期","遠距離"],"u":"https://arknights.wikiru.jp/index.php?12F"},{"n":"ドゥリン","s":2,"t":["術師","初期","遠距離"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%89%E3%82%A5%E3%83%AA%E3%83%B3"},{"n":"バニラ","s":3,"t":["先鋒","近距離","COST回復"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%90%E3%83%8B%E3%83%A9"},{"n":"フェン","s":3,"t":["先鋒","近距離","COST回復"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%95%E3%82%A7%E3%83%B3"},{"n":"プリュム","s":3,"t":["先鋒","近距離","火力","COST回復"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%97%E3%83%AA%E3%83%A5%E3%83%A0"},{"n":"ポプカル","s":3,"t":["前衛","近距離","生存","範囲攻撃"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%9D%E3%83%97%E3%82%AB%E3%83%AB"},{"n":"ミッドナイト","s":3,"t":["前衛","近距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%9F%E3%83%83%E3%83%89%E3%83%8A%E3%82%A4%E3%83%88"},{"n":"メランサ","s":3,"t":["前衛","近距離","火力","生存"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%A1%E3%83%A9%E3%83%B3%E3%82%B5"},{"n":"スポット","s":3,"t":["重装","近距離","防御","治療"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B9%E3%83%9D%E3%83%83%E3%83%88"},{"n":"ビーグル","s":3,"t":["重装","近距離","防御"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%93%E3%83%BC%E3%82%B0%E3%83%AB"},{"n":"アドナキエル","s":3,"t":["狙撃","遠距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A2%E3%83%89%E3%83%8A%E3%82%AD%E3%82%A8%E3%83%AB"},{"n":"カタパルト","s":3,"t":["狙撃","遠距離","範囲攻撃"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%AB%E3%82%BF%E3%83%91%E3%83%AB%E3%83%88"},{"n":"クルース","s":3,"t":["狙撃","遠距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%AF%E3%83%AB%E3%83%BC%E3%82%B9"},{"n":"スチュワード","s":3,"t":["術師","遠距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B9%E3%83%81%E3%83%A5%E3%83%AF%E3%83%BC%E3%83%89"},{"n":"ラヴァ","s":3,"t":["術師","遠距離","範囲攻撃"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%A9%E3%83%B4%E3%82%A1"},{"n":"アンセル","s":3,"t":["医療","遠距離","治療"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A2%E3%83%B3%E3%82%BB%E3%83%AB"},{"n":"ハイビスカス","s":3,"t":["医療","遠距離","治療"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%8F%E3%82%A4%E3%83%93%E3%82%B9%E3%82%AB%E3%82%B9"},{"n":"オーキッド","s":3,"t":["補助","遠距離","減速"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%AA%E3%83%BC%E3%82%AD%E3%83%83%E3%83%89"},{"n":"ヴィグナ","s":4,"t":["先鋒","近距離","火力","COST回復"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%B4%E3%82%A3%E3%82%B0%E3%83%8A"},{"n":"スカベンジャー","s":4,"t":["先鋒","近距離","火力","COST回復"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B9%E3%82%AB%E3%83%99%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%BC"},{"n":"テンニンカ","s":4,"t":["先鋒","近距離","治療","COST回復"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%86%E3%83%B3%E3%83%8B%E3%83%B3%E3%82%AB"},{"n":"ウタゲ","s":4,"t":["前衛","近距離","火力","生存"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A6%E3%82%BF%E3%82%B2"},{"n":"エステル","s":4,"t":["前衛","近距離","生存","範囲攻撃"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A8%E3%82%B9%E3%83%86%E3%83%AB"},{"n":"カッター","s":4,"t":["前衛","近距離","火力","爆発力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%AB%E3%83%83%E3%82%BF%E3%83%BC"},{"n":"ドーベルマン","s":4,"t":["前衛","近距離","火力","支援"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%89%E3%83%BC%E3%83%99%E3%83%AB%E3%83%9E%E3%83%B3"},{"n":"ビーハンター","s":4,"t":["前衛","近距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%93%E3%83%BC%E3%83%8F%E3%83%B3%E3%82%BF%E3%83%BC"},{"n":"フロストリーフ","s":4,"t":["前衛","近距離","火力","減速"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%95%E3%83%AD%E3%82%B9%E3%83%88%E3%83%AA%E3%83%BC%E3%83%95"},{"n":"マトイマル","s":4,"t":["前衛","近距離","火力","生存"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%9E%E3%83%88%E3%82%A4%E3%83%9E%E3%83%AB"},{"n":"ムース","s":4,"t":["前衛","近距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%A0%E3%83%BC%E3%82%B9"},{"n":"クオーラ","s":4,"t":["重装","近距離","防御"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%AF%E3%82%AA%E3%83%BC%E3%83%A9"},{"n":"グム","s":4,"t":["重装","近距離","防御","治療"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B0%E3%83%A0"},{"n":"マッターホルン","s":4,"t":["重装","近距離","防御"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%9E%E3%83%83%E3%82%BF%E3%83%BC%E3%83%9B%E3%83%AB%E3%83%B3"},{"n":"アシッドドロップ","s":4,"t":["狙撃","遠距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A2%E3%82%B7%E3%83%83%E3%83%89%E3%83%89%E3%83%AD%E3%83%83%E3%83%97"},{"n":"アンブリエル","s":4,"t":["狙撃","遠距離","火力","減速"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A2%E3%83%B3%E3%83%96%E3%83%AA%E3%82%A8%E3%83%AB"},{"n":"ヴァーミル","s":4,"t":["狙撃","遠距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%B4%E3%82%A1%E3%83%BC%E3%83%9F%E3%83%AB"},{"n":"ジェシカ","s":4,"t":["狙撃","遠距離","火力","生存"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B8%E3%82%A7%E3%82%B7%E3%82%AB"},{"n":"シラユキ","s":4,"t":["狙撃","遠距離","範囲攻撃","減速"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B7%E3%83%A9%E3%83%A6%E3%82%AD"},{"n":"メイ","s":4,"t":["狙撃","遠距離","火力","減速"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%A1%E3%82%A4"},{"n":"メテオ","s":4,"t":["狙撃","遠距離","火力","弱化"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%A1%E3%83%86%E3%82%AA"},{"n":"ギターノ","s":4,"t":["術師","遠距離","範囲攻撃"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%AE%E3%82%BF%E3%83%BC%E3%83%8E"},{"n":"グレイ","s":4,"t":["術師","遠距離","範囲攻撃","減速"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B0%E3%83%AC%E3%82%A4"},{"n":"ヘイズ","s":4,"t":["術師","遠距離","火力","弱化"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%98%E3%82%A4%E3%82%BA"},{"n":"カシャ","s":4,"t":["術師","遠距離","火力","牽制"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%AB%E3%82%B7%E3%83%A3"},{"n":"ススーロ","s":4,"t":["医療","遠距離","治療"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B9%E3%82%B9%E3%83%BC%E3%83%AD"},{"n":"セイリュウ","s":4,"t":["医療","遠距離","治療","支援"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%BB%E3%82%A4%E3%83%AA%E3%83%A5%E3%82%A6"},{"n":"パフューマー","s":4,"t":["医療","遠距離","治療"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%91%E3%83%95%E3%83%A5%E3%83%BC%E3%83%9E%E3%83%BC"},{"n":"ミルラ","s":4,"t":["医療","遠距離","治療"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%9F%E3%83%AB%E3%83%A9"},{"n":"アーススピリット","s":4,"t":["補助","遠距離","減速"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A2%E3%83%BC%E3%82%B9%E3%82%B9%E3%83%94%E3%83%AA%E3%83%83%E3%83%88"},{"n":"ポデンコ","s":4,"t":["補助","遠距離","治療","減速"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%9D%E3%83%87%E3%83%B3%E3%82%B3"},{"n":"グラベル","s":4,"t":["特殊","近距離","防御","高速再配置"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B0%E3%83%A9%E3%83%99%E3%83%AB"},{"n":"ジェイ","s":4,"t":["特殊","近距離","火力","高速再配置"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B8%E3%82%A7%E3%82%A4"},{"n":"ショウ","s":4,"t":["特殊","近距離","強制移動"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B7%E3%83%A7%E3%82%A6"},{"n":"ロープ","s":4,"t":["特殊","近距離","強制移動"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%AD%E3%83%BC%E3%83%97"},{"n":"キアーベ","s":5,"t":["先鋒","近距離","火力","COST回復"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%AD%E3%82%A2%E3%83%BC%E3%83%99"},{"n":"ズィマー","s":5,"t":["先鋒","近距離","支援","COST回復"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%BA%E3%82%A3%E3%83%9E%E3%83%BC"},{"n":"テキサス","s":5,"t":["先鋒","近距離","牽制","COST回復"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%86%E3%82%AD%E3%82%B5%E3%82%B9"},{"n":"リード","s":5,"t":["先鋒","近距離","火力","COST回復"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%AA%E3%83%BC%E3%83%89"},{"n":"エリジウム","s":5,"t":["先鋒","近距離","支援","COST回復"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A8%E3%83%AA%E3%82%B8%E3%82%A6%E3%83%A0"},{"n":"アステシア","s":5,"t":["前衛","近距離","火力","防御"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A2%E3%82%B9%E3%83%86%E3%82%B7%E3%82%A2"},{"n":"インドラ","s":5,"t":["前衛","近距離","火力","生存"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A4%E3%83%B3%E3%83%89%E3%83%A9"},{"n":"スペクター","s":5,"t":["前衛","近距離","生存","範囲攻撃"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B9%E3%83%9A%E3%82%AF%E3%82%BF%E3%83%BC"},{"n":"スワイヤー","s":5,"t":["前衛","近距離","火力","支援"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B9%E3%83%AF%E3%82%A4%E3%83%A4%E3%83%BC"},{"n":"フリント","s":5,"t":["前衛","近距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%95%E3%83%AA%E3%83%B3%E3%83%88"},{"n":"ブローカ","s":5,"t":["前衛","近距離","生存","範囲攻撃"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%96%E3%83%AD%E3%83%BC%E3%82%AB"},{"n":"エアースカーペ","s":5,"t":["前衛","近距離","火力","範囲攻撃"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A8%E3%82%A2%E3%83%BC%E3%82%B9%E3%82%AB%E3%83%BC%E3%83%9A"},{"n":"ヴァルカン","s":5,"t":["重装","近距離","火力","生存","防御"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%B4%E3%82%A1%E3%83%AB%E3%82%AB%E3%83%B3"},{"n":"ウン","s":5,"t":["重装","近距離","防御","治療"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A6%E3%83%B3"},{"n":"クロワッサン","s":5,"t":["重装","近距離","防御","強制移動"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%AF%E3%83%AD%E3%83%AF%E3%83%83%E3%82%B5%E3%83%B3"},{"n":"ニアール","s":5,"t":["重装","近距離","防御","治療"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%8B%E3%82%A2%E3%83%BC%E3%83%AB"},{"n":"リスカム","s":5,"t":["重装","近距離","火力","防御"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%AA%E3%82%B9%E3%82%AB%E3%83%A0"},{"n":"アスベストス","s":5,"t":["重装","近距離","火力","防御"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A2%E3%82%B9%E3%83%99%E3%82%B9%E3%83%88%E3%82%B9"},{"n":"アズリウス","s":5,"t":["狙撃","遠距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A2%E3%82%BA%E3%83%AA%E3%82%A6%E3%82%B9"},{"n":"アンドレアナ","s":5,"t":["狙撃","遠距離","火力","減速"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A2%E3%83%B3%E3%83%89%E3%83%AC%E3%82%A2%E3%83%8A"},{"n":"イグゼキュター","s":5,"t":["狙撃","遠距離","範囲攻撃"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A4%E3%82%B0%E3%82%BC%E3%82%AD%E3%83%A5%E3%82%BF%E3%83%BC"},{"n":"グレースロート","s":5,"t":["狙撃","遠距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B9%E3%83%AD%E3%83%BC%E3%83%88"},{"n":"シェーシャ","s":5,"t":["狙撃","遠距離","範囲攻撃","弱化"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B7%E3%82%A7%E3%83%BC%E3%82%B7%E3%83%A3"},{"n":"ファイヤーウォッチ","s":5,"t":["狙撃","遠距離","火力","爆発力"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%95%E3%82%A1%E3%82%A4%E3%83%A4%E3%83%BC%E3%82%A6%E3%82%A9%E3%83%83%E3%83%81"},{"n":"プラチナ","s":5,"t":["狙撃","遠距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%97%E3%83%A9%E3%83%81%E3%83%8A"},{"n":"プロヴァンス","s":5,"t":["狙撃","遠距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%97%E3%83%AD%E3%83%B4%E3%82%A1%E3%83%B3%E3%82%B9"},{"n":"メテオリーテ","s":5,"t":["狙撃","遠距離","範囲攻撃","弱化"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%A1%E3%83%86%E3%82%AA%E3%83%AA%E3%83%BC%E3%83%86"},{"n":"ナイトメア","s":5,"t":["術師","遠距離","火力","治療","減速"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%8A%E3%82%A4%E3%83%88%E3%83%A1%E3%82%A2"},{"n":"ビーズワクス","s":5,"t":["術師","遠距離","防御","範囲攻撃"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%93%E3%83%BC%E3%82%BA%E3%83%AF%E3%82%AF%E3%82%B9"},{"n":"レイズ","s":5,"t":["術師","遠距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%AC%E3%82%A4%E3%82%BA"},{"n":"レオンハルト","s":5,"t":["術師","遠距離","範囲攻撃","爆発力"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%AC%E3%82%AA%E3%83%B3%E3%83%8F%E3%83%AB%E3%83%88"},{"n":"サイレンス","s":5,"t":["医療","遠距離","治療"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B5%E3%82%A4%E3%83%AC%E3%83%B3%E3%82%B9"},{"n":"フィリオプシス","s":5,"t":["医療","遠距離","治療","支援"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%95%E3%82%A3%E3%83%AA%E3%82%AA%E3%83%97%E3%82%B7%E3%82%B9"},{"n":"ワルファリン","s":5,"t":["医療","遠距離","治療","支援"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%AF%E3%83%AB%E3%83%95%E3%82%A1%E3%83%AA%E3%83%B3"},{"n":"イースチナ","s":5,"t":["補助","遠距離","火力","減速"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A4%E3%83%BC%E3%82%B9%E3%83%81%E3%83%8A"},{"n":"グラウコス","s":5,"t":["補助","遠距離","減速","牽制"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B0%E3%83%A9%E3%82%A6%E3%82%B3%E3%82%B9"},{"n":"シャマレ","s":5,"t":["補助","遠距離","弱化"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B7%E3%83%A3%E3%83%9E%E3%83%AC"},{"n":"プラマニクス","s":5,"t":["補助","遠距離","弱化"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%97%E3%83%A9%E3%83%9E%E3%83%8B%E3%82%AF%E3%82%B9"},{"n":"メイヤー","s":5,"t":["補助","遠距離","牽制","召喚"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%A1%E3%82%A4%E3%83%A4%E3%83%BC"},{"n":"ツキノギ","s":5,"t":["補助","遠距離","生存","支援"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%84%E3%82%AD%E3%83%8E%E3%82%AE"},{"n":"エフイーター","s":5,"t":["特殊","近距離","減速","強制移動"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A8%E3%83%95%E3%82%A4%E3%83%BC%E3%82%BF%E3%83%BC"},{"n":"クリフハート","s":5,"t":["特殊","近距離","火力","強制移動"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%AF%E3%83%AA%E3%83%95%E3%83%8F%E3%83%BC%E3%83%88"},{"n":"マンティコア","s":5,"t":["特殊","近距離","火力","生存"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%9E%E3%83%B3%E3%83%86%E3%82%A3%E3%82%B3%E3%82%A2"},{"n":"レッド","s":5,"t":["特殊","近距離","牽制","高速再配置"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%AC%E3%83%83%E3%83%89"},{"n":"ワイフー","s":5,"t":["特殊","近距離","弱化","高速再配置"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%AF%E3%82%A4%E3%83%95%E3%83%BC"},{"n":"シージ","s":6,"t":["先鋒","近距離","火力","COST回復"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B7%E3%83%BC%E3%82%B8"},{"n":"バグパイプ","s":6,"t":["先鋒","近距離","火力","COST回復"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%90%E3%82%B0%E3%83%91%E3%82%A4%E3%83%97"},{"n":"シルバーアッシュ","s":6,"t":["前衛","近距離","火力","支援"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B7%E3%83%AB%E3%83%90%E3%83%BC%E3%82%A2%E3%83%83%E3%82%B7%E3%83%A5"},{"n":"スカジ","s":6,"t":["前衛","近距離","火力","生存"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B9%E3%82%AB%E3%82%B8"},{"n":"ソーンズ","s":6,"t":["前衛","近距離","火力","防御"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%BD%E3%83%BC%E3%83%B3%E3%82%BA"},{"n":"チェン","s":6,"t":["前衛","近距離","火力","爆発力"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%81%E3%82%A7%E3%83%B3"},{"n":"ブレイズ","s":6,"t":["前衛","近距離","火力","生存"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%96%E3%83%AC%E3%82%A4%E3%82%BA"},{"n":"ヘラグ","s":6,"t":["前衛","近距離","火力","生存"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%98%E3%83%A9%E3%82%B0"},{"n":"サリア","s":6,"t":["重装","近距離","防御","治療","支援"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B5%E3%83%AA%E3%82%A2"},{"n":"ホシグマ","s":6,"t":["重装","近距離","火力","防御"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%9B%E3%82%B7%E3%82%B0%E3%83%9E"},{"n":"ユーネクテス","s":6,"t":["重装","近距離","火力","生存","防御"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%A6%E3%83%BC%E3%83%8D%E3%82%AF%E3%83%86%E3%82%B9"},{"n":"エクシア","s":6,"t":["狙撃","遠距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A8%E3%82%AF%E3%82%B7%E3%82%A2"},{"n":"シュヴァルツ","s":6,"t":["狙撃","遠距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B7%E3%83%A5%E3%83%B4%E3%82%A1%E3%83%AB%E3%83%84"},{"n":"ロサ","s":6,"t":["狙撃","遠距離","火力","牽制"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%AD%E3%82%B5"},{"n":"イフリータ","s":6,"t":["術師","遠距離","範囲攻撃","弱化"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A4%E3%83%95%E3%83%AA%E3%83%BC%E3%82%BF"},{"n":"ケオベ","s":6,"t":["術師","遠距離","火力","牽制"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B1%E3%82%AA%E3%83%99"},{"n":"モスティマ","s":6,"t":["術師","遠距離","支援","範囲攻撃","牽制"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%A2%E3%82%B9%E3%83%86%E3%82%A3%E3%83%9E"},{"n":"シャイニング","s":6,"t":["医療","遠距離","治療","支援"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B7%E3%83%A3%E3%82%A4%E3%83%8B%E3%83%B3%E3%82%B0"},{"n":"ナイチンゲール","s":6,"t":["医療","遠距離","治療","支援"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%8A%E3%82%A4%E3%83%81%E3%83%B3%E3%82%B2%E3%83%BC%E3%83%AB"},{"n":"マゼラン","s":6,"t":["補助","遠距離","火力","支援","減速"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%9E%E3%82%BC%E3%83%A9%E3%83%B3"},{"n":"スズラン","s":6,"t":["補助","遠距離","火力","支援","減速"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B9%E3%82%BA%E3%83%A9%E3%83%B3"},{"n":"ア","s":6,"t":["特殊","遠距離","火力","支援"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A2"},{"n":"ファントム","s":6,"t":["特殊","近距離","火力","牽制","高速再配置"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%95%E3%82%A1%E3%83%B3%E3%83%88%E3%83%A0"},{"n":"ウィーディ","s":6,"t":["特殊","近距離","火力","牽制","強制移動"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A6%E3%82%A3%E3%83%BC%E3%83%87%E3%82%A3"},{"n":"スルト","s":6,"t":["前衛","近距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B9%E3%83%AB%E3%83%88"},{"n":"エイプリル","s":5,"t":["狙撃","遠距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A8%E3%82%A4%E3%83%97%E3%83%AA%E3%83%AB"},{"n":"アレーン","s":4,"t":["前衛","近距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A2%E3%83%AC%E3%83%BC%E3%83%B3"},{"n":"PhonoR-0","s":1,"t":["補助","遠距離","元素","ロボット"],"u":"https://arknights.wikiru.jp/?PhonoR-0"},{"n":"バブル","s":4,"t":["重装","近距離","防御"],"u":"https://arknights.wikiru.jp/?%E3%83%90%E3%83%96%E3%83%AB"},{"n":"アオスタ","s":5,"t":["狙撃","遠距離","範囲攻撃"],"u":"https://arknights.wikiru.jp/?%E3%82%A2%E3%82%AA%E3%82%B9%E3%82%BF"},{"n":"ブレミシャイン","s":6,"t":["重装","近距離","火力","防御","治療"],"u":"https://arknights.wikiru.jp/?%E3%83%96%E3%83%AC%E3%83%9F%E3%82%B7%E3%83%A3%E3%82%A4%E3%83%B3"},{"n":"マドロック","s":6,"t":["重装","近距離","生存","防御","火力"],"u":"https://arknights.wikiru.jp/?%E3%83%9E%E3%83%89%E3%83%AD%E3%83%83%E3%82%AF"},{"n":"ウィスパーレイン","s":5,"t":["医療","遠距離","治療"],"u":"https://arknights.wikiru.jp/?%E3%82%A6%E3%82%A3%E3%82%B9%E3%83%91%E3%83%BC%E3%83%AC%E3%82%A4%E3%83%B3"},{"n":"ジャッキー","s":4,"t":["前衛","近距離","火力"],"u":"https://arknights.wikiru.jp/?%E3%82%B8%E3%83%A3%E3%83%83%E3%82%AD%E3%83%BC"},{"n":"マウンテン","s":6,"t":["前衛","近距離","火力","生存"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%86%E3%83%B3"},{"n":"カフカ","s":5,"t":["特殊","近距離","高速再配置","牽制"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%AB%E3%83%95%E3%82%AB"},{"n":"パインコーン","s":4,"t":["狙撃","遠距離","範囲攻撃","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%91%E3%82%A4%E3%83%B3%E3%82%B3%E3%83%BC%E3%83%B3"},{"n":"アルケット","s":6,"t":["狙撃","遠距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A2%E3%83%AB%E3%82%B1%E3%83%83%E3%83%88"},{"n":"アイリス","s":5,"t":["術師","遠距離","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A2%E3%82%A4%E3%83%AA%E3%82%B9"},{"n":"ビーンストーク","s":4,"t":["先鋒","遠距離","COST回復","召喚"],"u":"https://arknights.wikiru.jp/index.php?%E3%83%93%E3%83%BC%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%82%AF"},{"n":"サガ","s":6,"t":["先鋒","近距離","COST回復","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%B5%E3%82%AC"},{"n":"ウユウ","s":5,"t":["特殊","近距離","高速再配置","火力"],"u":"https://arknights.wikiru.jp/index.php?%E3%82%A6%E3%83%A6%E3%82%A6"},{"n":"CONFESS-47","s":1,"t":["先鋒","近距離","ロボット","牽制"],"u":"https://arknights.wikiru.jp/index.php?CONFESS-47"},{"n":"パッセンジャー","s":6,"t":["術師","遠距離","火力"],"u":"https://arknights.wikiru.jp/?%E3%83%91%E3%83%83%E3%82%BB%E3%83%B3%E3%82%B8%E3%83%A3%E3%83%BC"},{"n":"トギフォンス","s":5,"t":["狙撃","遠距離","火力"],"u":"https://arknights.wikiru.jp/?%E3%83%88%E3%82%AE%E3%83%95%E3%82%A9%E3%83%B3%E3%82%B9"},{"n":"ケルシー","s":6,"t":["医療","遠距離","召喚","治療"],"u":"https://arknights.wikiru.jp/?%E3%82%B1%E3%83%AB%E3%82%B7%E3%83%BC"},{"n":"アカフユ","s":5,"t":["前衛","近距離","生存","火力"],"u":"https://arknights.wikiru.jp/?%E3%82%A2%E3%82%AB%E3%83%95%E3%83%A6"},{"n":"カーネリアン","s":6,"t":["術師","遠距離","範囲攻撃","防御"],"u":"https://arknights.wikiru.jp/?%E3%82%AB%E3%83%BC%E3%83%8D%E3%83%AA%E3%82%A2%E3%83%B3"},{"n":"キララ","s":5,"t":["特殊","近距離","生存","火力"],"u":"https://arknights.wikiru.jp/?%E3%82%AD%E3%83%A9%E3%83%A9"},{"n":"インディゴ","s":4,"t":["術師","遠距離","牽制","火力"],"u":"https://arknights.wikiru.jp/?%E3%82%A4%E3%83%B3%E3%83%87%E3%82%A3%E3%82%B4"},{"n":"パラス","s":6,"t":["前衛","近距離","火力","支援"],"u":"https://arknights.wikiru.jp/?%E3%83%91%E3%83%A9%E3%82%B9"},{"n":"GALLUS²","s":1,"t":["術師","遠距離","ロボット","弱化"],"u":"https://arknights.wikiru.jp/?GALLUS%C2%B2"}];
@@ -95,11 +186,19 @@ const ALL_TAGS = TAG_GROUPS.flatMap(group => group.tags);
 const JOB_TAGS = new Set(['先鋒','前衛','重装','狙撃','術師','医療','補助','特殊']);
 const displayTag = tag => JOB_TAGS.has(tag) ? tag + 'タイプ' : tag;
 const SAFE_OPS = OPERATORS.map(o => ({...o, ts:new Set(o.t.concat(o.s===6?['上級エリート']:o.s===5?['エリート']:[]))}));
-const state={selected:[],mode:'normal',expanded:new Set(),showAll:false,hiddenFirst:false,onlyGuaranteed:false};
+const state={selected:[],mode:'normal',expanded:new Set(),showAll:false,hiddenFirst:false,onlyGuaranteed:false,previousTags:null};
 const $=id=>document.getElementById(id);
 const escapeHtml=str=>String(str).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 let toastTimer;
 function toast(message){const el=$('toast');el.textContent=message;el.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('visible'),2100)}
+function resetForNext(){
+ if(!state.selected.length){toast('選択中のタグはありません');return}
+ state.previousTags=[...state.selected];state.selected=[];state.showAll=false;state.onlyGuaranteed=false;state.expanded.clear();state.hiddenFirst=false;
+ saveState();render();$('tag-search').value='';renderTags();document.getElementById('input-panel').scrollIntoView({behavior:'smooth',block:'start'});
+ const el=$('toast');el.innerHTML='次の求人を入力できます <button id="undo-reset" type="button">元に戻す</button>';el.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>{el.classList.remove('visible');state.previousTags=null},7000);
+}
+function undoReset(){if(!state.previousTags)return;state.selected=state.previousTags;state.previousTags=null;clearTimeout(toastTimer);$('toast').classList.remove('visible');saveState();render()}
+function jumpTo(target){const el=$(target);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
 function loadState(){try{const saved=JSON.parse(localStorage.getItem('recruit-tag-lab-v1')||'{}');if(Array.isArray(saved.selected))state.selected=[...new Set(saved.selected.filter(t=>ALL_TAGS.includes(t)))].slice(0,5);if(saved.mode==='robot')state.mode='robot';if(saved.onlyGuaranteed===true)state.onlyGuaranteed=true}catch{}}
 function saveState(){try{localStorage.setItem('recruit-tag-lab-v1',JSON.stringify({selected:state.selected,mode:state.mode,onlyGuaranteed:state.onlyGuaranteed}))}catch{}}
 function opCandidates(tags,mode){
@@ -146,6 +245,7 @@ function collectCombinations(tags,mode){
 function tierForSolo(tag){const ops=opCandidates([tag],'normal');return ops.length?classification(ops,[tag],'normal').level:0}
 const SOLO_RANK=new Map(ALL_TAGS.map(tag=>[tag,tierForSolo(tag)]));
 function toggleTag(tag){
+ state.previousTags=null;
  const at=state.selected.indexOf(tag);
  if(at>=0)state.selected.splice(at,1);
  else if(state.selected.length>=5){toast('ゲーム画面のタグは最大5つです');return}
@@ -155,6 +255,7 @@ function toggleTag(tag){
 function setMode(mode){if(state.mode===mode)return;state.mode=mode;state.expanded.clear();state.showAll=false;state.hiddenFirst=false;render();saveState()}
 function renderSelected(){
  $('tag-counter').textContent=state.selected.length+' / 5';$('selected-num').textContent=state.selected.length;
+ $('dock-tag-count').textContent=state.selected.length+'/5';
  $('selected-tags').innerHTML=state.selected.length?state.selected.map(t=>`<button type="button" class="tag-selected" data-remove="${escapeHtml(t)}" aria-label="${escapeHtml(displayTag(t))}を解除">${escapeHtml(displayTag(t))} <b aria-hidden="true">×</b></button>`).join(''):'<span class="empty-slot">タグをタップして追加</span>';
  $('mode-normal').classList.toggle('active',state.mode==='normal');$('mode-robot').classList.toggle('active',state.mode==='robot');
  $('mode-normal').setAttribute('aria-pressed',state.mode==='normal');$('mode-robot').setAttribute('aria-pressed',state.mode==='robot');
@@ -194,10 +295,10 @@ function renderResults(){
  const note=state.mode==='normal'?'9時間設定での判定。タグが消えなかった場合の最低レア度です。':'3時間50分設定。ロボット（★1）を狙う特別モードです。★5・★6は対象外。';
  $('mode-note').textContent=note;
  const jump=$('mobile-jump');
- if(!state.selected.length){$('combo-count').textContent='—';jump.classList.remove('show');$('result-content').innerHTML=`<div class="result-empty"><div class="empty-icon"><span>⌕</span></div><h3>タグを選択してください</h3><p>左側からゲームに表示されたタグを選ぶと、<br>候補とおすすめの組み合わせを自動計算します。</p></div>`;return}
+ if(!state.selected.length){$('combo-count').textContent='—';jump.disabled=true;$('result-content').innerHTML=`<div class="result-empty"><div class="empty-icon"><span>⌕</span></div><h3>タグを選択してください</h3><p>左側からゲームに表示されたタグを選ぶと、<br>候補とおすすめの組み合わせを自動計算します。</p></div>`;return}
  const {list,invalid}=collectCombinations(state.selected,state.mode);
  $('combo-count').textContent=list.length+'通り';
- jump.classList.add('show');$('jump-label').textContent=state.mode==='robot'?'ロボット候補を見る':list.some(c=>c.score.level>=4)?'高レアの候補を見る':'検索結果を見る';
+ jump.disabled=false;$('jump-label').textContent=state.mode==='robot'?'ロボット候補':list.some(c=>c.score.level>=4)?'高レアの結果':'検索結果';
  const robotWarning=state.mode==='normal'&&state.selected.includes('ロボット')?`<div class="invalid-note">「ロボット」は9時間では排出できません。★1を狙うなら上の募集時間を <button type="button" class="inline-link" id="switch-robot">3:50に切り替え</button> てください。</div>`:'';
  const eliteWarning=state.mode==='robot'&&state.selected.some(t=>t==='上級エリート'||t==='エリート')?'<div class="invalid-note">「エリート」「上級エリート」は9:00で使用してください。3:50では対象外です。</div>':'';
  const recommended=list.filter(c=>!c.redundant);
@@ -218,7 +319,22 @@ function renderResults(){
  if(invalid.length&&!list.length)content+='<div class="invalid-note">※ 条件が両立しないタグの組み合わせは候補から除外しています。</div>';
  $('result-content').innerHTML=`<div class="results-inner">${content}</div>`;
 }
-function render(){renderSelected();renderTags();renderResults()}
+function renderQuickAdvice(){
+ const el=$('quick-advice');const tags=state.selected;
+ if(!tags.length){el.className='quick-advice is-empty';el.innerHTML='<span class="quick-empty">ゲームに出たタグを選んでください。最優先の組み合わせがここに表示されます。</span>';return}
+ const combos=collectCombinations(tags,state.mode).list;
+ const best=combos.find(c=>!c.redundant)||combos[0];
+ if(!best){el.className='quick-advice is-empty';el.innerHTML='<div class="quick-label">現在の判定</div><strong class="quick-no-results">この時間では候補なし</strong><p>「9:00 / 3:50」を切り替えて確認してください。</p>';return}
+ const b=best.score;
+ const good=b.level>=4;
+ const title=b.kind==='robot'?'★1 ロボット候補':good?b.badge:'★4以上確定なし';
+ el.className='quick-advice'+(good?' is-good':' is-regular');
+ el.innerHTML=`<div class="quick-label">今の最優先 <span>${tags.length}/5タグ入力中</span></div>
+ <div class="quick-topline"><strong>${escapeHtml(title)}</strong><span>${best.ops.length}人が候補</span></div>
+ <div class="quick-combo">${best.tags.map(t=>`<span>${escapeHtml(displayTag(t))}</span>`).join('')}</div>
+ <button type="button" class="quick-open" id="quick-result-open">候補キャラ・他の組み合わせを見る <span aria-hidden="true">→</span></button>`;
+}
+function render(){renderSelected();renderTags();renderResults();renderQuickAdvice()}
 function openIndex(){
  $('operator-modal').showModal();$('op-search').value='';renderIndex();
 }
@@ -254,7 +370,11 @@ function bind(){
  $('tag-groups').addEventListener('click',e=>{const btn=e.target.closest('[data-tag]');if(btn)toggleTag(btn.dataset.tag)});
  $('selected-tags').addEventListener('click',e=>{const btn=e.target.closest('[data-remove]');if(btn)toggleTag(btn.dataset.remove)});
  $('tag-search').addEventListener('input',renderTags);
- $('clear-btn').addEventListener('click',()=>{state.selected=[];state.showAll=false;state.expanded.clear();state.hiddenFirst=false;saveState();render();toast('タグを解除しました')});
+ $('clear-btn').addEventListener('click',resetForNext);
+ $('dock-reset').addEventListener('click',resetForNext);
+ $('dock-input').addEventListener('click',()=>jumpTo('input-panel'));
+ $('quick-advice').addEventListener('click',e=>{if(e.target.closest('#quick-result-open'))jumpTo('results')});
+ $('toast').addEventListener('click',e=>{if(e.target.closest('#undo-reset'))undoReset()});
  $('mode-normal').addEventListener('click',()=>setMode('normal'));
  $('mode-robot').addEventListener('click',()=>setMode('robot'));
  $('result-content').addEventListener('click',e=>{
@@ -268,7 +388,7 @@ function bind(){
  $('op-search').addEventListener('input',renderIndex);
  $('op-list').addEventListener('click',e=>{const btn=e.target.closest('[data-op]');if(btn)setOperatorTags(btn.dataset.op)});
  $('operator-modal').addEventListener('click',e=>{if(e.target===$('operator-modal'))closeIndex()});
- $('mobile-jump').addEventListener('click',()=>{$('mobile-jump').classList.remove('show')});
+ $('mobile-jump').addEventListener('click',()=>jumpTo('results'));
 }
 loadState();bind();render();
 // 軽量な計算 API をテスト時にも使えるようにする（オフラインで動作）
