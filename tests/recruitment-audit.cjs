@@ -54,4 +54,13 @@ for(const op of OPERATORS) {
 }
 assert(html.includes("wikiLink(op,'operator-wiki-link')"),"The reverse index must link to Wiki");
 assert(html.includes("wikiLink(op,'preview-wiki-link')"),"Collapsed candidate names must link to Wiki");
-console.log("PASS: 158 operators, 29 tags, 8178 combinations and 158 White Wiki URLs");
+// UI regression: priority preview, mobile navigation, and reversible reset remain available.
+const htmlMarkers=['id="quick-advice"','id="dock-reset"','id="dock-input"','id="mobile-jump"','id="undo-reset"','function renderQuickAdvice','function resetForNext','function undoReset'];
+for(const marker of htmlMarkers)assert(html.includes(marker), "Missing mobile feature: "+marker);
+const adviceNode={className:'',innerHTML:''};
+sandbox.document.getElementById=(id)=>id==='quick-advice'?adviceNode:null;
+vm.runInContext("state.selected=['上級エリート','火力','支援'];state.mode='normal';renderQuickAdvice()",sandbox);
+assert(adviceNode.innerHTML.includes('★6確定'),'Top tier not visible without scrolling');
+vm.runInContext("state.selected=[];renderQuickAdvice()",sandbox);
+assert(adviceNode.className.includes('is-empty'));
+console.log("PASS: 158 operators, 8178 combinations, 158 Wiki URLs, mobile UX smoke test");
