@@ -1,0 +1,25 @@
+name: Recruitment data audit
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify JavaScript syntax
+        run: |
+          node --check tests/recruitment-audit.cjs
+          node --check sw.js
+      - name: Verify 158 operators and 8,178 recruitment cases
+        run: node tests/recruitment-audit.cjs index.html
